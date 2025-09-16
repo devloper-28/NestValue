@@ -1,0 +1,25 @@
+# Environment Variables for Investment Forecasting Backend
+
+# Server Configuration
+PORT=3001
+NODE_ENV=development
+
+# API Keys (Get free keys from these services)
+ALPHA_VANTAGE_API_KEY=your_key_here
+FRED_API_KEY=your_key_here
+
+# Rate Limiting
+MAX_REQUESTS_PER_WINDOW=100
+WINDOW_MS=900000
+
+# Cache Settings
+CACHE_DURATION_MS=900000
+
+# CORS Settings
+FRONTEND_URL=http://localhost:3000
+
+# API Documentation
+# Alpha Vantage: https://www.alphavantage.co/support/#api-key (Free: 500 calls/day)
+# FRED (Federal Reserve): https://fred.stlouisfed.org/docs/api/api_key.html (Free)
+# Yahoo Finance: No key required (unofficial API)
+# CoinDesk Bitcoin: No key required (free)

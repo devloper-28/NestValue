@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Backend API Tester</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .result { background: #f5f5f5; padding: 10px; margin-top: 10px; }
+        .error { background: #ffebee; color: #c62828; }
+        .success { background: #e8f5e8; color: #2e7d32; }
+        button { padding: 10px 15px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Backend API Tester</h1>
+    <p><strong>Make sure backend is running on:</strong> <code>http://localhost:3001</code></p>
+    
+    <div class="test-section">
+        <h3>1. Health Check</h3>
+        <button onclick="testHealth()">Test Health Endpoint</button>
+        <div id="health-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>2. Market Data</h3>
+        <button onclick="testMarketData()">Get Current Market Data</button>
+        <div id="market-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>3. Calculation Test</h3>
+        <button onclick="testCalculations()">Test Investment Calculations</button>
+        <div id="calc-result" class="result"></div>
+    </div>
+
+    <script>
+        const BASE_URL = 'http://localhost:3001';
+        
+        async function testHealth() {
+            const result = document.getElementById('health-result');
+            try {
+                console.log('Testing:', `${BASE_URL}/health`);
+                const response = await fetch(`${BASE_URL}/health`);
+                const data = await response.json();
+                result.className = 'result success';
+                result.innerHTML = `✅ Backend is running!<br><strong>Endpoint:</strong> /health<br><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                result.className = 'result error';
+                result.innerHTML = `❌ Backend not running: ${error.message}<br><strong>Make sure to start:</strong> node server.js`;
+            }
+        }
+
+        async function testMarketData() {
+            const result = document.getElementById('market-result');
+            try {
+                console.log('Testing:', `${BASE_URL}/api/market/current`);
+                const response = await fetch(`${BASE_URL}/api/market/current`);
+                const data = await response.json();
+                result.className = 'result success';
+                result.innerHTML = `✅ Market data received!<br><strong>Endpoint:</strong> /api/market/current<br><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                result.className = 'result error';
+                result.innerHTML = `❌ Error: ${error.message}<br><strong>Endpoint:</strong> /api/market/current`;
+            }
+        }
+
+        async function testCalculations() {
+            const result = document.getElementById('calc-result');
+            const testData = {
+                amount: "10000",
+                monthlyContribution: "500",
+                targetYear: "2030",
+                riskProfile: "moderate"
+            };
+
+            try {
+                console.log('Testing:', `${BASE_URL}/api/calculations/forecast`);
+                console.log('POST Data:', testData);
+                const response = await fetch(`${BASE_URL}/api/calculations/forecast`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(testData)
+                });
+                const data = await response.json();
+                result.className = 'result success';
+                result.innerHTML = `✅ Calculations working!<br><strong>Endpoint:</strong> POST /api/calculations/forecast<br><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                result.className = 'result error';
+                result.innerHTML = `❌ Error: ${error.message}<br><strong>Endpoint:</strong> POST /api/calculations/forecast`;
+            }
+        }
+
+        // Auto-test health on page load
+        window.onload = () => testHealth();
+    </script>
+</body>
+</html>

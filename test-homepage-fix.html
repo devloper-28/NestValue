@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test HomePage Fix</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .result { background: #f5f5f5; padding: 10px; margin-top: 10px; }
+        .success { background: #e8f5e8; color: #2e7d32; }
+        .error { background: #ffebee; color: #c62828; }
+        button { padding: 10px 15px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Test HomePage Error Fix</h1>
+    
+    <div class="test-section">
+        <h3>1. Test Market Data API Response</h3>
+        <button onclick="testMarketAPI()">Test Market Data</button>
+        <div id="market-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>2. Test Frontend App</h3>
+        <p>Go to <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> and check:</p>
+        <ul>
+            <li>✅ No console errors</li>
+            <li>✅ Home page loads without crashing</li>
+            <li>✅ Market data section shows (if backend is running)</li>
+            <li>✅ Market data section is hidden (if backend is not running)</li>
+        </ul>
+    </div>
+
+    <script>
+        async function testMarketAPI() {
+            const result = document.getElementById('market-result');
+            try {
+                const response = await fetch('http://localhost:3001/api/market/current');
+                const data = await response.json();
+                
+                // Test the specific properties that were causing errors
+                const hasData = data && data.data;
+                const hasMeta = data && data.meta;
+                const hasLastUpdated = data && data.meta && data.meta.lastUpdated;
+                
+                result.className = 'result success';
+                result.innerHTML = `✅ API Response Structure Test:
+                
+Data exists: ${hasData ? '✅' : '❌'}
+Meta exists: ${hasMeta ? '✅' : '❌'}  
+LastUpdated exists: ${hasLastUpdated ? '✅' : '❌'}
+
+Response:
+${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                result.className = 'result error';
+                result.innerHTML = `❌ API Error: ${error.message}
+                
+This is expected if backend is not running. The frontend should handle this gracefully.`;
+            }
+        }
+
+        // Auto-test on page load
+        window.onload = () => testMarketAPI();
+    </script>
+</body>
+</html>

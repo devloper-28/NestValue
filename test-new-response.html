@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test New API Response Structure</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .result { background: #f5f5f5; padding: 10px; margin-top: 10px; white-space: pre-wrap; }
+        .success { background: #e8f5e8; color: #2e7d32; }
+        .error { background: #ffebee; color: #c62828; }
+        button { padding: 10px 15px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test New API Response Structure</h1>
+    <p><strong>Backend should be running on:</strong> <code>http://localhost:3001</code></p>
+    
+    <div class="test-section">
+        <h3>1. Market Data with Better Bitcoin API</h3>
+        <button onclick="testMarketData()">Test Market Data</button>
+        <div id="market-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>2. Investment Calculations</h3>
+        <button onclick="testCalculations()">Test Calculations</button>
+        <div id="calc-result" class="result"></div>
+    </div>
+
+    <script>
+        const BASE_URL = 'http://localhost:3001';
+        
+        async function testMarketData() {
+            const result = document.getElementById('market-result');
+            try {
+                console.log('Testing market data...');
+                const response = await fetch(`${BASE_URL}/api/market/current`);
+                const data = await response.json();
+                
+                result.className = 'result success';
+                result.innerHTML = `✅ Market data received!
+Success: ${data.success}
+Message: ${data.message}
+Bitcoin Status: ${data.meta?.apiStatus?.bitcoin || 'unknown'}
+Bitcoin Price: ${data.data?.bitcoin?.currentPrice || 'N/A'}
+
+Full Response:
+${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                result.className = 'result error';
+                result.innerHTML = `❌ Error: ${error.message}`;
+            }
+        }
+
+        async function testCalculations() {
+            const result = document.getElementById('calc-result');
+            const testData = {
+                amount: "10000",
+                monthlyContribution: "500", 
+                targetYear: "2030",
+                riskProfile: "moderate"
+            };
+
+            try {
+                console.log('Testing calculations...');
+                const response = await fetch(`${BASE_URL}/api/calculations/forecast`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(testData)
+                });
+                const data = await response.json();
+                
+                result.className = 'result success';
+                result.innerHTML = `✅ Calculations working!
+Success: ${data.success}
+Message: ${data.message}
+Data Structure: ${data.data ? 'Present' : 'Missing'}
+
+Sample Projections:
+${data.data?.projections ? JSON.stringify(data.data.projections, null, 2) : 'No projections'}`;
+            } catch (error) {
+                result.className = 'result error';
+                result.innerHTML = `❌ Error: ${error.message}`;
+            }
+        }
+
+        // Auto-test on page load
+        window.onload = () => {
+            testMarketData();
+            setTimeout(testCalculations, 2000);
+        };
+    </script>
+</body>
+</html>
