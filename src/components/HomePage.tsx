@@ -218,23 +218,13 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
               <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900/30 dark:to-yellow-800/40 p-4 rounded-xl border border-yellow-200 dark:border-yellow-700/50">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-sm font-medium text-yellow-700 dark:text-yellow-300">₿ Bitcoin</p>
-                  <div className="flex items-center space-x-1">
-                    <span className="text-xs text-yellow-600 dark:text-yellow-400 bg-yellow-200 dark:bg-yellow-800/50 px-2 py-1 rounded-full">Return</span>
-                    {marketData?.meta?.apiStatus?.bitcoin === 'error' && (
-                      <span className="text-xs text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/50 px-2 py-1 rounded-full" title="API temporarily unavailable">
-                        ⚠️
-                      </span>
-                    )}
-                  </div>
+                  <span className="text-xs text-yellow-600 dark:text-yellow-400 bg-yellow-200 dark:bg-yellow-800/50 px-2 py-1 rounded-full">Return</span>
                 </div>
                 <p className="text-2xl font-bold text-yellow-900 dark:text-yellow-100">
-                  {currentPeriodData?.bitcoin?.expectedReturn || 'Volatile'}
+                  {currentPeriodData?.bitcoin?.expectedReturn || '15%'}
                 </p>
                 <p className="text-xs text-yellow-600 dark:text-yellow-400 mt-1">
-                  {marketData?.meta?.apiStatus?.bitcoin === 'error' 
-                    ? 'API temporarily down - using fallback' 
-                    : currentPeriodData?.bitcoin?.label || 'Highly volatile'
-                  }
+                  {currentPeriodData?.bitcoin?.label || 'Highly volatile'}
                   {timePeriod === 'historical' && (
                     <span className="ml-1" title="Bitcoin is highly volatile - returns can vary dramatically">
                       ⚠️
