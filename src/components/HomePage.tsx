@@ -120,11 +120,10 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 id="hero-title" className="text-4xl font-semibold text-foreground leading-tight">
-                Free Investment Calculator USA - Grow Your Money 2025
+                Free Investment Calculator USA — Grow Your Money 2025
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Best investment planning tool for Americans. Compare savings vs investment returns, S&P 500 vs bank savings, and see how your money grows with compound interest. 
-                Find the best investment options in USA for 2025 and beyond with our AI financial advisor.
+              Free USA investment calculator. Compare savings vs investments. See how S&P 500, bonds, gold & crypto grow your money with compound interest.
               </p>
             </div>
             
@@ -132,7 +131,7 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
               onClick={onStartPlanning}
               className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
             >
-              Start My Investment Planning USA
+              Try Our Free Investment Calculator
             </Button>
           </div>
           

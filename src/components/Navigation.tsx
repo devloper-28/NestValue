@@ -46,7 +46,10 @@ export function Navigation({ currentPage, onPageChange }: NavigationProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo and Brand */}
-          <div className="flex items-center gap-3">
+          <div 
+            className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity"
+            onClick={() => onPageChange('home')}
+          >
             <NestValueIcon className="h-8 w-8" />
             <span className="text-xl font-semibold text-foreground">NestValue</span>
           </div>

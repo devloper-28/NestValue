@@ -114,11 +114,11 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
   const hasSavedData = localStorage.getItem('investmentFormData') !== null;
 
   return (
-    <div className="min-h-screen bg-background py-8 sm:py-12">
+    <div className="min-h-screen bg-background py-8 sm:py-12 " style={{ paddingBottom: '48px' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
-          <h1 className=" text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4 mt-4">
-            Savings vs Investment Calculator USA
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4 mt-4">
+            Savings vs Investment Calculator for Americans
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mt-4">
             Compare stock vs bank returns, mutual fund vs savings account returns. See how much your money will grow with S&P 500, crypto, bonds, and gold. 
@@ -164,7 +164,6 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
                       className={errors.totalBalance ? "border-red-500" : ""}
                     />
                     {errors.totalBalance && <p className="text-red-500 text-sm">{errors.totalBalance}</p>}
-                    <p className="text-sm text-muted-foreground">Enter your total US savings to calculate best investment allocation</p>
                   </div>
 
                   <div className="space-y-2">
@@ -178,7 +177,6 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
                       className={errors.amount ? "border-red-500" : ""}
                     />
                     {errors.amount && <p className="text-red-500 text-sm">{errors.amount}</p>}
-                    <p className="text-sm text-muted-foreground">Choose how much to invest in best US investment options: stocks, crypto, bonds, or gold</p>
                   </div>
 
                   <div className="space-y-2">
@@ -192,7 +190,6 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
                       className={errors.monthlyContribution ? "border-red-500" : ""}
                     />
                     {errors.monthlyContribution && <p className="text-red-500 text-sm">{errors.monthlyContribution}</p>}
-                    <p className="text-sm text-muted-foreground">Add monthly contributions to see compound growth effect</p>
                   </div>
 
                   <div className="space-y-2">
@@ -210,7 +207,6 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
                       </SelectContent>
                     </Select>
                     {errors.targetYear && <p className="text-red-500 text-sm">{errors.targetYear}</p>}
-                    <p className="text-sm text-muted-foreground">Choose your investment horizon to see how much your money will grow over time</p>
                   </div>
 
                   <div className="space-y-2">
@@ -226,7 +222,6 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
                       </SelectContent>
                     </Select>
                     {errors.riskProfile && <p className="text-red-500 text-sm">{errors.riskProfile}</p>}
-                    <p className="text-sm text-muted-foreground">Your risk tolerance affects projected returns - find best investment plan for beginners USA</p>
                   </div>
 
                   <Button 

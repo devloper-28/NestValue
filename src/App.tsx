@@ -17,7 +17,7 @@ interface InvestmentData {
 export default function App() {
   const [currentPage, setCurrentPage] = useState(() => {
     // Get page from URL path or localStorage
-    const path = window.location.pathname.replace('/', '') || 'home';
+    const path = window.location.pathname.replace('/', '') || '';
     return path || localStorage.getItem('currentPage') || 'home';
   });
   const [investmentData, setInvestmentData] = useState<InvestmentData | null>(() => {
@@ -50,23 +50,26 @@ export default function App() {
   const handlePageChange = (page: string) => {
     setCurrentPage(page);
     localStorage.setItem('currentPage', page);
-    window.history.pushState({}, '', `/${page}`);
+    if (page === 'home') {
+      window.history.pushState({}, '', '/');
+    } else {
+      window.history.pushState({}, '', `/${page}`);
+    }
   };
 
   // Set initial URL on page load
   useEffect(() => {
-    if (window.location.pathname === '/') {
-      window.history.replaceState({}, '', '/home');
-    }
+    // Don't redirect root to /home, let it stay as /
   }, []);
 
   // Listen for URL changes (browser back/forward)
   useEffect(() => {
     const handlePopState = () => {
-      const path = window.location.pathname.replace('/', '') || 'home';
-      if (path !== currentPage) {
-        setCurrentPage(path);
-        localStorage.setItem('currentPage', path);
+      const path = window.location.pathname.replace('/', '') || '';
+      const page = path || 'home';
+      if (page !== currentPage) {
+        setCurrentPage(page);
+        localStorage.setItem('currentPage', page);
       }
     };
 

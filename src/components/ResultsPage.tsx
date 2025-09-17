@@ -397,14 +397,14 @@ export function ResultsPage({ investmentData }: ResultsPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-background py-8 sm:py-12">
+    <div className="min-h-screen bg-background py-8 sm:py-12" style={{ paddingBottom: '48px' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
-          <h1 className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4">
-            If I Invest ${formatCurrency(principal)} Where Will It Be in {targetYear}?
+          <h1  className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4">
+            If I Invest {formatCurrency(principal)} Where Will It Be in {targetYear}?
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground">
-            See how much your ${formatCurrency(principal)} will grow with compound interest over {years} years. 
+            See how much your {formatCurrency(principal)} will grow with compound interest over {years} years. 
             Compare S&P 500 vs bank savings, mutual fund vs savings account returns, and find the best investment options USA.
             {monthlyContribution > 0 && ` Plus ${formatCurrency(monthlyContribution)} monthly contributions.`}
           </p>

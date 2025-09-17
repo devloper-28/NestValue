@@ -85,6 +85,30 @@ export function AboutPage() {
           </CardContent>
         </Card>
 
+        {/* Internal Links */}
+        <Card className="mb-8 shadow-lg border">
+          <CardHeader>
+            <CardTitle>Ready to Start Planning?</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Button 
+                onClick={() => window.location.hash = '#invest'}
+                className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white"
+              >
+                Try Our Free Investment Calculator
+              </Button>
+              <Button 
+                onClick={() => window.location.hash = '#home'}
+                variant="outline"
+                className="border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30"
+              >
+                View Investment Options
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* FAQ Section */}
         <Card className="mb-8 shadow-lg border">
           <CardHeader>
