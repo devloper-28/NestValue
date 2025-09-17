@@ -50,11 +50,11 @@ export function AboutPage() {
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-semibold text-foreground mb-4">
-            About NestValue.us
+            About NestValue.us - AI Financial Advisor Online for Americans
           </h1>
           <p className="text-xl text-muted-foreground">
             Learn how our investment forecasting tool compares bank vs stock returns, 
-            projects growth to 2030, and helps you make smart investment decisions with compound interest calculations.
+            shows you how much your money will grow over time, and helps you find the best investment plan for beginners USA.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export function AboutPage() {
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <BookOpen className="w-5 h-5 text-blue-600" />
-              <span>Investment Calculator Return Assumptions - S&P 500, Crypto, Bonds, Gold</span>
+              <span>Investment Calculator Return Assumptions - Best Safe Investments USA 2025</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -88,7 +88,7 @@ export function AboutPage() {
         {/* FAQ Section */}
         <Card className="mb-8 shadow-lg border">
           <CardHeader>
-            <CardTitle>Investment Calculator FAQ - How to Grow Money 2025-2030</CardTitle>
+            <CardTitle>Investment Calculator FAQ - How Much Will My Money Grow?</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             {faqs.map((faq) => (

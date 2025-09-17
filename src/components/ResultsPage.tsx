@@ -401,11 +401,11 @@ export function ResultsPage({ investmentData }: ResultsPageProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4">
-            Investment Results - {targetYear}
+            If I Invest ${formatCurrency(principal)} Where Will It Be in {targetYear}?
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground">
-            See how your ${formatCurrency(principal)} investment grows with compound interest over {years} years. 
-            Compare S&P 500, crypto, bonds, and gold returns with our investment calculator.
+            See how much your ${formatCurrency(principal)} will grow with compound interest over {years} years. 
+            Compare S&P 500 vs bank savings, mutual fund vs savings account returns, and find the best investment options USA.
             {monthlyContribution > 0 && ` Plus ${formatCurrency(monthlyContribution)} monthly contributions.`}
           </p>
           <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200">
@@ -495,7 +495,7 @@ export function ResultsPage({ investmentData }: ResultsPageProps) {
         {/* Projection Chart */}
         <Card className="mb-8 shadow-lg border">
           <CardHeader>
-            <CardTitle>Investment Growth Chart - Bank vs Stock Returns Comparison</CardTitle>
+            <CardTitle>Investment Growth Chart - Projected Returns Over Time</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-96">
@@ -540,7 +540,7 @@ export function ResultsPage({ investmentData }: ResultsPageProps) {
         {/* Comparison Table */}
         <Card className="mb-8 shadow-lg border">
           <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>Investment Calculator Results - S&P 500 vs Crypto vs Bonds vs Gold</CardTitle>
+            <CardTitle>Best Investment Options USA 2025 - S&P 500 vs Bank Savings vs Crypto vs Gold</CardTitle>
             <div className="flex space-x-2">
               <Button 
                 variant="outline" 

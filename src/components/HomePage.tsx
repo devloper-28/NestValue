@@ -113,18 +113,18 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
   }, []);
 
   return (
-    <div className="min-h-screen from-blue-50 to-background dark:from-slate-900 dark:to-slate-800">
+    <main className="min-h-screen from-blue-50 to-background dark:from-slate-900 dark:to-slate-800">
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-6 pt-4 sm:pt-20 pb-16">
+      <section className="max-w-7xl mx-auto px-6 pt-4 sm:pt-20 pb-16" aria-labelledby="hero-title">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl font-semibold text-foreground leading-tight">
-                Free Investment Calculator
+              <h1 id="hero-title" className="text-4xl font-semibold text-foreground leading-tight">
+                Free Investment Calculator USA - Grow Your Money 2025
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Plan your financial future with our advanced investment planning tool. Compare S&P 500, crypto, bonds, and gold returns. 
-                See how $10,000 grows with compound interest calculator and make smart investment decisions for 2025 and beyond.
+                Best investment planning tool for Americans. Compare savings vs investment returns, S&P 500 vs bank savings, and see how your money grows with compound interest. 
+                Find the best investment options in USA for 2025 and beyond with our AI financial advisor.
               </p>
             </div>
             
@@ -132,26 +132,26 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
               onClick={onStartPlanning}
               className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
             >
-              Calculate My Investment Growth
+              Start My Investment Planning USA
             </Button>
           </div>
           
           <div className="flex justify-center">
             <ImageWithFallback
               src="https://images.unsplash.com/photo-1669951584309-492ed24d274f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBncm93dGglMjBjaGFydCUyMGNvaW5zfGVufDF8fHx8MTc1ODAxODY0MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-              alt="Financial growth visualization with coins and charts"
+              alt="Investment calculator showing financial growth charts, coins, and investment planning tools for S&P 500, crypto, bonds, and gold returns comparison"
               className="rounded-2xl shadow-2xl max-w-md w-full"
             />
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Market Performance Section */}
       {(marketData && marketData.data) ? (
-        <div className="max-w-7xl mx-auto px-6 pb-12">
+        <section className="max-w-7xl mx-auto px-6 pb-12" aria-labelledby="market-performance">
           <div className="bg-card rounded-2xl shadow-lg p-6 mb-8 border">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between justify-between mb-6">
-              <h2 className="text-2xl font-semibold text-card-foreground mb-3 sm:mb-0">Market Performance</h2>
+              <h2 id="market-performance" className="text-2xl font-semibold text-card-foreground mb-3 sm:mb-0">Market Performance</h2>
               <div className="flex items-center space-x-3 mobile_width">
                 <select 
                   value={timePeriod}
@@ -252,12 +252,12 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
               </div>
             </div>
           </div>
-        </div>
+        </section>
       ) : (
-        <div className="max-w-7xl mx-auto px-6 pb-12">
+        <section className="max-w-7xl mx-auto px-6 pb-12" aria-labelledby="market-performance-loading">
           <div className="bg-card rounded-2xl shadow-lg p-6 mb-8 border">
             <div className="text-center">
-              <h2 className="text-2xl font-semibold text-card-foreground mb-4">Market Performance</h2>
+              <h2 id="market-performance-loading" className="text-2xl font-semibold text-card-foreground mb-4">Market Performance</h2>
               <div className="flex items-center justify-center space-x-2 text-muted-foreground">
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
                 <span>Loading market data...</span>
@@ -267,19 +267,20 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
               </p>
             </div>
           </div>
-        </div>
+        </section>
       )}
 
       {/* Features Section */}
-      <div className="max-w-7xl mx-auto px-6 pb-20">
+      <section className="max-w-7xl mx-auto px-6 pb-20" aria-labelledby="features-title">
+        <h2 id="features-title" className="sr-only">Investment Calculator Features</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <Card className="p-8 text-center space-y-4 bg-card shadow-lg hover:shadow-xl transition-shadow border">
             <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto">
               <TrendingUp className="w-8 h-8 text-blue-600" />
             </div>
-            <h3 className="text-xl font-semibold text-card-foreground">Smart Investment Forecasting</h3>
+            <h3 className="text-xl font-semibold text-card-foreground">Investment Growth Calculator USA</h3>
             <p className="text-muted-foreground">
-              Advanced compound interest calculator with real market data. Compare bank savings vs S&P 500 returns and project growth to 2030.
+              Advanced compound interest calculator with real US market data. Compare bank savings vs S&P 500 returns and see how much your money will grow over time.
             </p>
           </Card>
 
@@ -287,9 +288,9 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
             <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto">
               <DollarSign className="w-8 h-8 text-green-600" />
             </div>
-            <h3 className="text-xl font-semibold text-card-foreground">Compare All Investment Options</h3>
+            <h3 className="text-xl font-semibold text-card-foreground">Best Investment Options USA 2025</h3>
             <p className="text-muted-foreground">
-              Side-by-side comparison of S&P 500, crypto, bonds, gold, and mutual funds. Find the best investment strategy for your risk profile.
+              Compare S&P 500 vs bank savings, mutual funds vs savings account returns, crypto vs bonds. Find the best safe investments in US for your risk profile.
             </p>
           </Card>
 
@@ -297,13 +298,13 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
             <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto">
               <PiggyBank className="w-8 h-8 text-purple-600" />
             </div>
-            <h3 className="text-xl font-semibold text-card-foreground">Smart Risk Management</h3>
+            <h3 className="text-xl font-semibold text-card-foreground">AI Financial Advisor Online</h3>
             <p className="text-muted-foreground">
-              Conservative, moderate, or aggressive investment strategies. See how risk affects your potential returns and plan accordingly.
+              Get personalized investment advice for Americans. Conservative, moderate, or aggressive strategies. See how risk affects your returns and plan your financial future.
             </p>
           </Card>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

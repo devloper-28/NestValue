@@ -118,11 +118,11 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4">
-            Investment Calculator
+            Savings vs Investment Calculator USA
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mt-4">
-            Enter your investment amount and see how it grows with S&P 500, crypto, bonds, and gold. 
-            <br></br>Plan your financial future with our advanced compound interest calculator.
+            Compare stock vs bank returns, mutual fund vs savings account returns. See how much your money will grow with S&P 500, crypto, bonds, and gold. 
+            <br></br>Best investment planning tool for Americans - calculate your financial future.
           </p>
           {hasSavedData && (
             <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200">
@@ -138,7 +138,7 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
               <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-2 sm:space-y-0">
                 <CardTitle className="flex items-center space-x-2 text-base sm:text-lg">
                   <Calculator className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
-                  <span>Investment Planning Calculator</span>
+                  <span>Stock vs Bank Returns Calculator USA</span>
                 </CardTitle>
                 <Button
                   type="button"
@@ -154,7 +154,7 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="totalBalance">Total Available Balance ($)</Label>
+                    <Label htmlFor="totalBalance">Total Available Balance ($) - Your Savings</Label>
                     <Input
                       id="totalBalance"
                       type="number"
@@ -164,11 +164,11 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
                       className={errors.totalBalance ? "border-red-500" : ""}
                     />
                     {errors.totalBalance && <p className="text-red-500 text-sm">{errors.totalBalance}</p>}
-                    <p className="text-sm text-muted-foreground">Enter your total savings to calculate investment allocation</p>
+                    <p className="text-sm text-muted-foreground">Enter your total US savings to calculate best investment allocation</p>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="amount">Amount to Invest ($)</Label>
+                    <Label htmlFor="amount">Amount to Invest ($) - S&P 500, Crypto, Bonds, Gold</Label>
                     <Input
                       id="amount"
                       type="number"
@@ -178,7 +178,7 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
                       className={errors.amount ? "border-red-500" : ""}
                     />
                     {errors.amount && <p className="text-red-500 text-sm">{errors.amount}</p>}
-                    <p className="text-sm text-muted-foreground">Choose how much to invest in stocks, crypto, bonds, or gold</p>
+                    <p className="text-sm text-muted-foreground">Choose how much to invest in best US investment options: stocks, crypto, bonds, or gold</p>
                   </div>
 
                   <div className="space-y-2">
@@ -196,7 +196,7 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
                   </div>
 
                   <div className="space-y-2">
-                    <Label>Investment Timeline (Target Year)</Label>
+                    <Label>Investment Timeline (Target Year) - How Much Will My Money Grow?</Label>
                     <Select onValueChange={(value) => updateField('targetYear', value)}>
                       <SelectTrigger className={errors.targetYear ? "border-red-500" : ""}>
                         <SelectValue placeholder="How long to invest? (2025-2054)" />
@@ -210,11 +210,11 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
                       </SelectContent>
                     </Select>
                     {errors.targetYear && <p className="text-red-500 text-sm">{errors.targetYear}</p>}
-                    <p className="text-sm text-muted-foreground">Choose your investment horizon to see projected returns</p>
+                    <p className="text-sm text-muted-foreground">Choose your investment horizon to see how much your money will grow over time</p>
                   </div>
 
                   <div className="space-y-2">
-                    <Label>Investment Risk Profile</Label>
+                    <Label>Investment Risk Profile - Best Safe Investments USA</Label>
                     <Select onValueChange={(value) => updateField('riskProfile', value)}>
                       <SelectTrigger className={errors.riskProfile ? "border-red-500" : ""}>
                         <SelectValue placeholder="Choose your investment strategy" />
@@ -226,14 +226,14 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
                       </SelectContent>
                     </Select>
                     {errors.riskProfile && <p className="text-red-500 text-sm">{errors.riskProfile}</p>}
-                    <p className="text-sm text-muted-foreground">Your risk tolerance affects projected returns and volatility</p>
+                    <p className="text-sm text-muted-foreground">Your risk tolerance affects projected returns - find best investment plan for beginners USA</p>
                   </div>
 
                   <Button 
                     type="submit" 
                     className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white py-4 sm:py-6 text-sm sm:text-lg rounded-xl"
                   >
-                    Calculate Investment Growth Projection
+                    Calculate How Much My Money Will Grow
                   </Button>
                 </form>
               </CardContent>
