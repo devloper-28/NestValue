@@ -114,15 +114,15 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
   const hasSavedData = localStorage.getItem('investmentFormData') !== null;
 
   return (
-    <div className="min-h-screen bg-background py-12">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-semibold text-foreground mb-4">
+    <div className="min-h-screen bg-background py-8 sm:py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4">
             Investment Calculator
           </h1>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mt-4">
             Enter your investment amount and see how it grows with S&P 500, crypto, bonds, and gold. 
-            Plan your financial future with our advanced compound interest calculator.
+            <br></br>Plan your financial future with our advanced compound interest calculator.
           </p>
           {hasSavedData && (
             <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200">
@@ -132,12 +132,12 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
           )}
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           <div className="lg:col-span-2">
             <Card className="shadow-lg border">
-              <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle className="flex items-center space-x-2">
-                  <Calculator className="w-5 h-5 text-blue-600" />
+              <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-2 sm:space-y-0">
+                <CardTitle className="flex items-center space-x-2 text-base sm:text-lg">
+                  <Calculator className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
                   <span>Investment Planning Calculator</span>
                 </CardTitle>
                 <Button
@@ -145,14 +145,14 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
                   onClick={clearFormData}
                   variant="outline"
                   size="sm"
-                  className="text-muted-foreground hover:text-red-600 hover:border-red-300"
+                  className="text-muted-foreground hover:text-red-600 hover:border-red-300 self-start sm:self-auto"
                   title="Clear all form data"
                 >
                   <Trash2 className="w-4 h-4" />
                 </Button>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                   <div className="space-y-2">
                     <Label htmlFor="totalBalance">Total Available Balance ($)</Label>
                     <Input
@@ -231,7 +231,7 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
 
                   <Button 
                     type="submit" 
-                    className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white py-6 text-lg rounded-xl"
+                    className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white py-4 sm:py-6 text-sm sm:text-lg rounded-xl"
                   >
                     Calculate Investment Growth Projection
                   </Button>
@@ -240,15 +240,15 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
             </Card>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {formData.totalBalance && parseFloat(formData.totalBalance) > 0 && (
               <Card className="bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800">
-                <CardContent className="p-6">
+                <CardContent className="p-4 sm:p-6">
                   <div className="flex items-start space-x-3">
-                    <Lightbulb className="w-5 h-5 text-green-600 mt-1" />
-                    <div>
-                      <h3 className="font-semibold text-green-900 dark:text-green-100 mb-2">Smart Investment Advice</h3>
-                      <div className="text-sm text-green-800 dark:text-green-200 space-y-2">
+                    <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <div className="min-w-0">
+                      <h3 className="font-semibold text-green-900 dark:text-green-100 mb-2 text-sm sm:text-base">Smart Investment Advice</h3>
+                      <div className="text-xs sm:text-sm text-green-800 dark:text-green-200 space-y-2">
                         <p><strong>Total Balance:</strong> ${parseFloat(formData.totalBalance).toLocaleString()}</p>
                         {formData.amount && (
                           <p><strong>Investing:</strong> ${parseFloat(formData.amount).toLocaleString()} ({(parseFloat(formData.amount) / parseFloat(formData.totalBalance) * 100).toFixed(1)}%)</p>
@@ -270,12 +270,12 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
             )}
 
             <Card className="bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
-              <CardContent className="p-6">
+              <CardContent className="p-4 sm:p-6">
                 <div className="flex items-start space-x-3">
-                  <Lightbulb className="w-5 h-5 text-blue-600 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Investment Tips</h3>
-                    <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-1">
+                  <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mt-1 flex-shrink-0" />
+                  <div className="min-w-0">
+                    <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-2 text-sm sm:text-base">Investment Tips</h3>
+                    <ul className="text-xs sm:text-sm text-blue-800 dark:text-blue-200 space-y-1">
                       <li>• Higher risk may mean higher reward</li>
                       <li>• Diversification helps reduce risk</li>
                       <li>• Time in market beats timing the market</li>

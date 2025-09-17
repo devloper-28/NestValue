@@ -1,0 +1,13 @@
+@media (max-width: 600px) {
+    .mobile_width {
+        width: 100% !important;
+        margin-top: 16px !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+    }
+    
+    .mobile_width select {
+        width: 100% !important;
+    }
+}

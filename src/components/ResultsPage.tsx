@@ -170,8 +170,8 @@ export function ResultsPage({ investmentData }: ResultsPageProps) {
               Investment Forecast
             </h1>
             <p className="text-xl text-muted-foreground">
-              Based on your <span className=" rounded px-2 py-1">$0</span> initial investment
-              <span className=" rounded px-2 py-1 ml-2">$0 monthly contributions</span>
+              Based on your <span className=" rounded py-1">$0</span> initial investment
+              <span className=" rounded px-2 py-1 ">$0 monthly contributions</span>
               {' '}until <span className=" rounded px-2 py-1">2035</span>
             </p>
             <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full text-sm  text-muted-foreground">
@@ -397,13 +397,13 @@ export function ResultsPage({ investmentData }: ResultsPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-background py-12">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-semibold text-foreground mb-4">
+    <div className="min-h-screen bg-background py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4">
             Investment Results - {targetYear}
           </h1>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground">
             See how your ${formatCurrency(principal)} investment grows with compound interest over {years} years. 
             Compare S&P 500, crypto, bonds, and gold returns with our investment calculator.
             {monthlyContribution > 0 && ` Plus ${formatCurrency(monthlyContribution)} monthly contributions.`}
@@ -430,21 +430,21 @@ export function ResultsPage({ investmentData }: ResultsPageProps) {
         </div>
 
         {/* Investment Summary */}
-        <Card className=" from-blue-50 to-green-50 dark:from-blue-950/20 dark:to-green-950/20 border-blue-200 dark:border-blue-800 mb-8">
-          <CardContent className="p-6">
-            <div className="grid md:grid-cols-3 gap-6">
+        <Card className=" from-blue-50 to-green-50 dark:from-blue-950/20 dark:to-green-950/20 border-blue-200 dark:border-blue-800 mb-6 sm:mb-8">
+          <CardContent className="p-4 sm:p-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               <div className="text-center">
-                <p className="text-sm text-muted-foreground mb-1">Total Available Balance</p>
-                <p className="text-2xl font-bold text-foreground">${parseFloat(investmentData.totalBalance).toLocaleString()}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mb-1">Total Available Balance</p>
+                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">${parseFloat(investmentData.totalBalance).toLocaleString()}</p>
               </div>
               <div className="text-center">
-                <p className="text-sm text-muted-foreground mb-1">Amount Investing</p>
-                <p className="text-2xl font-bold text-blue-600">{formatCurrency(principal)}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mb-1">Amount Investing</p>
+                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-blue-600">{formatCurrency(principal)}</p>
                 <p className="text-xs text-muted-foreground">({((principal / parseFloat(investmentData.totalBalance)) * 100).toFixed(1)}% of balance)</p>
               </div>
               <div className="text-center">
-                <p className="text-sm text-muted-foreground mb-1">Remaining Balance</p>
-                <p className="text-2xl font-bold text-foreground">${(parseFloat(investmentData.totalBalance) - principal).toLocaleString()}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mb-1">Remaining Balance</p>
+                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">${(parseFloat(investmentData.totalBalance) - principal).toLocaleString()}</p>
                 <p className="text-xs text-muted-foreground">Available for other uses</p>
               </div>
             </div>
@@ -452,15 +452,15 @@ export function ResultsPage({ investmentData }: ResultsPageProps) {
         </Card>
 
         {/* Key Metrics */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
           <Card className="bg-card shadow-lg border">
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">Total Invested</p>
-                  <p className="text-2xl font-semibold text-foreground">{formatCurrency(totalInvested)}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">Total Invested</p>
+                  <p className="text-lg sm:text-xl lg:text-2xl font-semibold text-foreground">{formatCurrency(totalInvested)}</p>
                 </div>
-                <DollarSign className="w-8 h-8 text-blue-600" />
+                <DollarSign className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
               </div>
             </CardContent>
           </Card>
