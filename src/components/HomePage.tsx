@@ -297,7 +297,7 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
             <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto">
               <PiggyBank className="w-8 h-8 text-purple-600" />
             </div>
-            <h3 className="text-xl font-semibold text-card-foreground">AI Financial Advisor Online</h3>
+            <h3 className="text-xl font-semibold text-card-foreground">Financial Advisor Online</h3>
             <p className="text-muted-foreground">
               Get personalized investment advice for Americans. Conservative, moderate, or aggressive strategies. See how risk affects your returns and plan your financial future.
             </p>

@@ -50,7 +50,7 @@ export function AboutPage() {
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-semibold text-foreground mb-4">
-            About NestValue.us - AI Financial Advisor Online for Americans
+            About NestValue.us - Financial Advisor Online for Americans
           </h1>
           <p className="text-xl text-muted-foreground">
             Learn how our investment forecasting tool compares bank vs stock returns, 
