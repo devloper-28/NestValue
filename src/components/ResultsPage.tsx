@@ -400,7 +400,7 @@ export function ResultsPage({ investmentData }: ResultsPageProps) {
     <div className="min-h-screen bg-background py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4">
+          <h1 className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4">
             If I Invest ${formatCurrency(principal)} Where Will It Be in {targetYear}?
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground">
@@ -430,21 +430,21 @@ export function ResultsPage({ investmentData }: ResultsPageProps) {
         </div>
 
         {/* Investment Summary */}
-        <Card className=" from-blue-50 to-green-50 dark:from-blue-950/20 dark:to-green-950/20 border-blue-200 dark:border-blue-800 mb-6 sm:mb-8">
-          <CardContent className="p-4 sm:p-6">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+        <Card className="from-blue-50 to-green-50 dark:from-blue-950/20 dark:to-green-950/20 border-blue-200 dark:border-blue-800 mb-8">
+          <CardContent className="p-6">
+            <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <p className="text-xs sm:text-sm text-muted-foreground mb-1">Total Available Balance</p>
-                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">${parseFloat(investmentData.totalBalance).toLocaleString()}</p>
+                <p className="text-sm text-muted-foreground mb-1">Total Available Balance</p>
+                <p className="text-2xl font-bold text-foreground">${parseFloat(investmentData.totalBalance).toLocaleString()}</p>
               </div>
               <div className="text-center">
-                <p className="text-xs sm:text-sm text-muted-foreground mb-1">Amount Investing</p>
-                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-blue-600">{formatCurrency(principal)}</p>
+                <p className="text-sm text-muted-foreground mb-1">Amount Investing</p>
+                <p className="text-2xl font-bold text-blue-600">{formatCurrency(principal)}</p>
                 <p className="text-xs text-muted-foreground">({((principal / parseFloat(investmentData.totalBalance)) * 100).toFixed(1)}% of balance)</p>
               </div>
               <div className="text-center">
-                <p className="text-xs sm:text-sm text-muted-foreground mb-1">Remaining Balance</p>
-                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">${(parseFloat(investmentData.totalBalance) - principal).toLocaleString()}</p>
+                <p className="text-sm text-muted-foreground mb-1">Remaining Balance</p>
+                <p className="text-2xl font-bold text-foreground">${(parseFloat(investmentData.totalBalance) - principal).toLocaleString()}</p>
                 <p className="text-xs text-muted-foreground">Available for other uses</p>
               </div>
             </div>
