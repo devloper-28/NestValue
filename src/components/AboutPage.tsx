@@ -46,7 +46,7 @@ export function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background py-12">
+    <div style={{ paddingBottom: '48px' }} className="min-h-screen bg-background mt-4">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-semibold text-foreground mb-4">

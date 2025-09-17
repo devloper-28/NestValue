@@ -117,7 +117,7 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
     <div className="min-h-screen bg-background py-8 sm:py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4">
+          <h1 className=" text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4 mt-4">
             Savings vs Investment Calculator USA
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mt-4">
