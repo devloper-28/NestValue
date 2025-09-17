@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
+import { NestValueIcon } from "./nest-value-icon";
 
 interface NavigationProps {
   currentPage: string;
@@ -44,12 +45,10 @@ export function Navigation({ currentPage, onPageChange }: NavigationProps) {
     <nav className="bg-background border-b border-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-semibold text-sm">FI</span>
-            </div>
-            <span className="font-semibold text-lg text-foreground">FinanceIQ</span>
+          {/* Logo and Brand */}
+          <div className="flex items-center gap-3">
+            <NestValueIcon className="h-8 w-8" />
+            <span className="text-xl font-semibold text-foreground">NestValue</span>
           </div>
           
           {/* Desktop Navigation */}
