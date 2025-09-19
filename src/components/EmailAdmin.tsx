@@ -28,13 +28,13 @@ interface ContactData {
 }
 
 export function EmailAdmin() {
-  const [emails, setEmails] = useState<EmailData[]>([]);
-  const [contacts, setContacts] = useState<ContactData[]>([]);
+  const [emails, setEmails] = useState([]);
+  const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [activeTab, setActiveTab] = useState<'emails' | 'contacts'>('emails');
+  const [activeTab, setActiveTab] = useState('emails');
 
   useEffect(() => {
     // Check if already authenticated
@@ -83,7 +83,7 @@ export function EmailAdmin() {
     }
   };
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     // Simple password check - you can change this password
     if (password === 'nestvalue2025') {
@@ -230,7 +230,7 @@ export function EmailAdmin() {
           <Card>
             <CardContent className="p-6 text-center">
               <div className="text-2xl font-bold text-foreground">
-                {emails.length > 0 ? formatCurrency(emails.reduce((sum, email) => sum + parseFloat(email.investmentData.amount), 0)) : '$0'}
+                {emails.length > 0 ? formatCurrency(emails.reduce((sum, email) => sum + (email.investmentData?.amount ? parseFloat(email.investmentData.amount) : 0), 0)) : '$0'}
               </div>
               <div className="text-sm text-muted-foreground">Total Investment Value</div>
             </CardContent>
@@ -238,7 +238,7 @@ export function EmailAdmin() {
           <Card>
             <CardContent className="p-6 text-center">
               <div className="text-2xl font-bold text-foreground">
-                {emails.length > 0 ? Math.round(emails.reduce((sum, email) => sum + parseFloat(email.investmentData.amount), 0) / emails.length) : 0}
+                {emails.length > 0 ? Math.round(emails.reduce((sum, email) => sum + (email.investmentData?.amount ? parseFloat(email.investmentData.amount) : 0), 0) / emails.length) : 0}
               </div>
               <div className="text-sm text-muted-foreground">Average Investment</div>
             </CardContent>
@@ -256,13 +256,23 @@ export function EmailAdmin() {
           </Card>
         ) : (
           <div className="space-y-4">
-            {emails.map((emailData, index) => (
-              <Card key={emailData.id} className="shadow-lg border">
+            {emails.map((emailData, index) => {
+              // Skip if emailData is invalid
+              if (!emailData || !emailData.email) {
+                return null;
+              }
+              
+              // Check if this is a contact form submission or consultation email
+              const isContactForm = emailData.name && emailData.subject && emailData.message;
+              const isConsultationEmail = emailData.investmentData;
+              
+              return (
+              <Card key={emailData.id || index} className="shadow-lg border">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="flex items-center gap-2">
                       <Mail className="w-5 h-5 text-blue-600" />
-                      Request #{index + 1}
+                      {isContactForm ? 'Contact Form' : 'Consultation'} #{index + 1}
                     </CardTitle>
                     <Badge variant="outline">
                       {new Date(emailData.timestamp).toLocaleDateString()}
@@ -278,6 +288,12 @@ export function EmailAdmin() {
                         Contact Information
                       </h4>
                       <div className="space-y-2">
+                        {isContactForm && (
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm text-muted-foreground">Name:</span>
+                            <span className="text-sm font-medium text-foreground">{emailData.name}</span>
+                          </div>
+                        )}
                         <div className="flex items-center gap-2">
                           <span className="text-sm text-muted-foreground">Email:</span>
                           <span className="text-sm font-medium text-foreground">{emailData.email}</span>
@@ -291,35 +307,55 @@ export function EmailAdmin() {
                       </div>
                     </div>
 
-                    {/* Investment Details */}
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-                        <DollarSign className="w-4 h-4" />
-                        Investment Details
-                      </h4>
-                      <div className="grid grid-cols-2 gap-2 text-sm">
-                        <div>
-                          <span className="text-muted-foreground">Amount:</span>
-                          <div className="font-medium">{formatCurrency(parseFloat(emailData.investmentData.amount))}</div>
-                        </div>
-                        <div>
-                          <span className="text-muted-foreground">Target Year:</span>
-                          <div className="font-medium">{emailData.investmentData.targetYear}</div>
-                        </div>
-                        <div>
-                          <span className="text-muted-foreground">Monthly:</span>
-                          <div className="font-medium">{formatCurrency(parseFloat(emailData.investmentData.monthlyContribution))}</div>
-                        </div>
-                        <div>
-                          <span className="text-muted-foreground">Risk:</span>
-                          <div className="font-medium capitalize">{emailData.investmentData.riskProfile}</div>
+                    {/* Contact Form Details OR Investment Details */}
+                    {isContactForm ? (
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                          <Mail className="w-4 h-4" />
+                          Message Details
+                        </h4>
+                        <div className="space-y-2 text-sm">
+                          <div>
+                            <span className="text-muted-foreground">Subject:</span>
+                            <div className="font-medium">{emailData.subject}</div>
+                          </div>
+                          <div>
+                            <span className="text-muted-foreground">Message:</span>
+                            <div className="font-medium mt-1 p-2 bg-muted rounded text-xs">{emailData.message}</div>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    ) : (
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                          <DollarSign className="w-4 h-4" />
+                          Investment Details
+                        </h4>
+                        <div className="grid grid-cols-2 gap-2 text-sm">
+                          <div>
+                            <span className="text-muted-foreground">Amount:</span>
+                            <div className="font-medium">{emailData.investmentData?.amount ? formatCurrency(parseFloat(emailData.investmentData.amount)) : 'N/A'}</div>
+                          </div>
+                          <div>
+                            <span className="text-muted-foreground">Target Year:</span>
+                            <div className="font-medium">{emailData.investmentData?.targetYear || 'N/A'}</div>
+                          </div>
+                          <div>
+                            <span className="text-muted-foreground">Monthly:</span>
+                            <div className="font-medium">{emailData.investmentData?.monthlyContribution ? formatCurrency(parseFloat(emailData.investmentData.monthlyContribution)) : 'N/A'}</div>
+                          </div>
+                          <div>
+                            <span className="text-muted-foreground">Risk:</span>
+                            <div className="font-medium capitalize">{emailData.investmentData?.riskProfile || 'N/A'}</div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </CardContent>
               </Card>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
