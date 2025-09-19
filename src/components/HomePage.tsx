@@ -4,7 +4,7 @@ import { Card } from "./ui/card";
 import { TrendingUp, DollarSign, PiggyBank, Wifi, WifiOff, RefreshCw } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { apiService } from "../services/apiService";
-import "./homePage.css";
+import "./index.css";
 
 interface HomePageProps {
   onStartPlanning: () => void;
