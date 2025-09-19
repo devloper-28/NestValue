@@ -82,6 +82,67 @@ app.get('/api/emails', (req, res) => {
   }
 });
 
+// Contact form endpoint
+app.post('/api/contact', (req, res) => {
+  try {
+    const { name, email, subject, message, timestamp } = req.body;
+    
+    if (!name || !email || !subject || !message) {
+      return res.status(400).json({ error: 'All fields are required' });
+    }
+
+    // Create contact data
+    const contactData = {
+      id: Date.now().toString(),
+      name,
+      email,
+      subject,
+      message,
+      timestamp: timestamp || new Date().toISOString(),
+      ip: req.ip || req.connection.remoteAddress || 'Unknown'
+    };
+
+    // Read existing contacts
+    let contacts = [];
+    try {
+      const contactsData = fs.readFileSync(EMAILS_FILE, 'utf8');
+      contacts = JSON.parse(contactsData);
+    } catch (error) {
+      // File doesn't exist or is empty, start with empty array
+      contacts = [];
+    }
+
+    // Add new contact
+    contacts.push(contactData);
+
+    // Save contacts
+    fs.writeFileSync(EMAILS_FILE, JSON.stringify(contacts, null, 2));
+
+    console.log('📧 New contact form submission:', contactData);
+    res.json({ success: true, message: 'Contact form submitted successfully' });
+  } catch (error) {
+    console.error('Error processing contact form:', error);
+    res.status(500).json({ error: 'Error processing contact form' });
+  }
+});
+
+// Get contacts endpoint
+app.get('/api/contacts', (req, res) => {
+  const { password } = req.query;
+  
+  if (password !== 'nestvalue2025') {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  try {
+    const contactsData = fs.readFileSync(EMAILS_FILE, 'utf8');
+    const contacts = JSON.parse(contactsData);
+    res.json(contacts);
+  } catch (error) {
+    res.status(500).json({ error: 'Error reading contacts' });
+  }
+});
+
 // Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
