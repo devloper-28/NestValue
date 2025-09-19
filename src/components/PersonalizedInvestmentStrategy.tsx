@@ -376,18 +376,18 @@ export function PersonalizedInvestmentStrategy({ investmentData, onBackToResults
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleEmailSubmit} className="flex gap-2">
+                <form onSubmit={handleEmailSubmit} className="space-y-4">
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address"
                     required
-                    className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                   <Button 
                     type="submit"
-                    className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-6 py-2"
+                    className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-6 py-2"
                   >
                     <Users className="w-4 h-4 mr-2" />
                     Get Started
