@@ -12,6 +12,91 @@ import { ContactPage } from './components/ContactPage';
 import { TermsOfService } from './components/TermsOfService';
 import { Footer } from './components/Footer';
 
+// Function to update meta tags dynamically
+const updateMetaTags = (page: string, investmentData?: InvestmentData | null) => {
+  const metaTags = {
+    home: {
+      title: 'Free Investment Calculator USA - Grow Your Money 2025',
+      description: 'Plan smarter with NestValue. Compare savings, stocks, crypto, bonds & gold. See how your money grows with compound interest in the USA.',
+      keywords: 'investment calculator, compound interest calculator, savings vs investment calculator, stock vs bank returns comparison, how much will 10000 grow in 10 years, best investment options USA 2025, mutual fund vs savings account returns, financial advisor online, best safe investments USA, investment growth calculator USA'
+    },
+    input: {
+      title: 'Savings vs Investment Calculator USA | NestValue',
+      description: 'Enter your balance & get forecasts. Compare banks, stocks, bonds, gold & crypto to see which investments grow your money fastest.',
+      keywords: 'savings vs investment calculator, mutual fund vs bank returns USA, investment growth calculator USA, best investment options USA 2025, how much will my money grow, compound interest calculator USA'
+    },
+    results: {
+      title: investmentData ? `If I Invest $${parseInt(investmentData.amount).toLocaleString()} in USA, How Much by ${investmentData.targetYear}? | NestValue` : 'Investment Results | NestValue',
+      description: investmentData ? `Results for $${parseInt(investmentData.amount).toLocaleString()} by ${investmentData.targetYear}. Compare bank savings vs S&P 500, crypto, bonds & gold. Find the best US investment option for your money.` : 'Compare bank savings vs S&P 500, crypto, bonds & gold. Find the best US investment option for your money.',
+      keywords: 'investment results, S&P 500 vs bank savings, crypto vs gold investment, best investment options USA 2025, how much will my money grow, investment growth calculator USA'
+    },
+    expert: {
+      title: 'Personalized Investment Strategy | NestValue',
+      description: 'Get expert investment advice tailored to your financial goals. Professional portfolio recommendations, risk assessment, and personalized investment strategy.',
+      keywords: 'personalized investment strategy, expert investment advice, portfolio recommendations, risk assessment, financial planning USA, investment consultation'
+    },
+    about: {
+      title: 'About NestValue | Investment Forecast Tool USA',
+      description: 'Learn how NestValue uses historical data to forecast savings vs investments. Understand our assumptions, accuracy, and safe investing guidance.',
+      keywords: 'about NestValue, investment forecast tool, financial planning USA, investment calculator accuracy, safe investing guidance, investment assumptions'
+    },
+    contact: {
+      title: 'Contact Us | NestValue Investment Calculator',
+      description: 'Get in touch with NestValue for investment questions, calculator support, or business inquiries. We\'re here to help with your financial planning.',
+      keywords: 'contact NestValue, investment calculator support, financial planning help, investment questions, calculator assistance'
+    },
+    privacy: {
+      title: 'Privacy Policy | NestValue Investment Calculator',
+      description: 'NestValue privacy policy. Learn how we protect your personal information and data when using our investment calculator and financial planning tools.',
+      keywords: 'privacy policy, data protection, personal information, investment calculator privacy, financial data security'
+    },
+    terms: {
+      title: 'Terms of Service | NestValue Investment Calculator',
+      description: 'NestValue terms of service. Read our terms and conditions for using our investment calculator and financial planning tools.',
+      keywords: 'terms of service, terms and conditions, investment calculator terms, financial planning terms, user agreement'
+    }
+  };
+
+  const currentMeta = metaTags[page as keyof typeof metaTags] || metaTags.home;
+  
+  // Update title
+  document.title = currentMeta.title;
+  
+  // Update meta description
+  const metaDescription = document.querySelector('meta[name="description"]');
+  if (metaDescription) {
+    metaDescription.setAttribute('content', currentMeta.description);
+  }
+  
+  // Update meta keywords
+  const metaKeywords = document.querySelector('meta[name="keywords"]');
+  if (metaKeywords) {
+    metaKeywords.setAttribute('content', currentMeta.keywords);
+  }
+  
+  // Update Open Graph tags
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) {
+    ogTitle.setAttribute('content', currentMeta.title);
+  }
+  
+  const ogDescription = document.querySelector('meta[property="og:description"]');
+  if (ogDescription) {
+    ogDescription.setAttribute('content', currentMeta.description);
+  }
+  
+  // Update Twitter tags
+  const twitterTitle = document.querySelector('meta[property="twitter:title"]');
+  if (twitterTitle) {
+    twitterTitle.setAttribute('content', currentMeta.title);
+  }
+  
+  const twitterDescription = document.querySelector('meta[property="twitter:description"]');
+  if (twitterDescription) {
+    twitterDescription.setAttribute('content', currentMeta.description);
+  }
+};
+
 interface InvestmentData {
   totalBalance: string;
   amount: string;
@@ -79,6 +164,11 @@ export default function App() {
   useEffect(() => {
     // Don't redirect root to /home, let it stay as /
   }, []);
+
+  // Update meta tags when page changes
+  useEffect(() => {
+    updateMetaTags(currentPage, investmentData);
+  }, [currentPage, investmentData]);
 
   // Listen for URL changes (browser back/forward)
   useEffect(() => {
