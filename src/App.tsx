@@ -7,6 +7,10 @@ import { ResultsPage } from './components/ResultsPage';
 import { AboutPage } from './components/AboutPage';
 import { PersonalizedInvestmentStrategy } from './components/PersonalizedInvestmentStrategy';
 import { EmailAdmin } from './components/EmailAdmin';
+import { PrivacyPolicy } from './components/PrivacyPolicy';
+import { ContactPage } from './components/ContactPage';
+import { TermsOfService } from './components/TermsOfService';
+import { Footer } from './components/Footer';
 
 interface InvestmentData {
   totalBalance: string;
@@ -103,6 +107,12 @@ export default function App() {
         return <PersonalizedInvestmentStrategy investmentData={investmentData} onBackToResults={handleBackToResults} />;
       case 'about':
         return <AboutPage onPageChange={handlePageChange} />;
+      case 'privacy':
+        return <PrivacyPolicy />;
+      case 'contact':
+        return <ContactPage />;
+      case 'terms':
+        return <TermsOfService />;
       case 'admin':
         return <EmailAdmin />;
       default:
@@ -117,6 +127,7 @@ export default function App() {
         <main>
           {renderCurrentPage()}
         </main>
+        <Footer onPageChange={handlePageChange} />
       </div>
     } />
   );

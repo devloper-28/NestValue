@@ -17,12 +17,24 @@ interface EmailData {
   id: number;
 }
 
+interface ContactData {
+  id: string;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  timestamp: string;
+  ip: string;
+}
+
 export function EmailAdmin() {
   const [emails, setEmails] = useState<EmailData[]>([]);
+  const [contacts, setContacts] = useState<ContactData[]>([]);
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [activeTab, setActiveTab] = useState<'emails' | 'contacts'>('emails');
 
   useEffect(() => {
     // Check if already authenticated
@@ -52,6 +64,23 @@ export function EmailAdmin() {
       setEmails([]);
     }
     setLoading(false);
+  };
+
+  const loadContacts = async () => {
+    try {
+      const response = await fetch('https://nestvalue.onrender.com/api/contacts?password=nestvalue2025');
+      if (response.ok) {
+        const data = await response.json();
+        setContacts(data);
+        console.log('✅ Loaded contacts from backend:', data.length);
+      } else {
+        console.error('❌ Backend returned error:', response.status);
+        setContacts([]);
+      }
+    } catch (error) {
+      console.error('❌ Error loading contacts from backend:', error);
+      setContacts([]);
+    }
   };
 
   const handleLogin = (e: React.FormEvent) => {

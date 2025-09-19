@@ -18,7 +18,8 @@ export function Navigation({ currentPage, onPageChange }: NavigationProps) {
     { id: 'home', label: 'Home' },
     { id: 'input', label: 'Plan Investment' },
     { id: 'results', label: 'Results' },
-    { id: 'about', label: 'About' }
+    { id: 'about', label: 'About' },
+    { id: 'contact', label: 'Contact' }
   ];
 
   const toggleTheme = () => {
