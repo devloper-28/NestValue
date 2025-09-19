@@ -37,27 +37,19 @@ export function EmailAdmin() {
 
   const loadEmails = async () => {
     try {
-      // Try to fetch from backend first
+      // Always try to fetch from backend first
       const response = await fetch('https://nestvalue.onrender.com/api/emails?password=nestvalue2025');
       if (response.ok) {
         const backendEmails = await response.json();
         setEmails(backendEmails);
         console.log('✅ Loaded emails from backend:', backendEmails.length);
       } else {
-        console.log('❌ Backend not available, using localStorage');
-        // Fallback to localStorage
-        const storedEmails = localStorage.getItem('consultationEmails');
-        if (storedEmails) {
-          setEmails(JSON.parse(storedEmails));
-        }
+        console.error('❌ Backend returned error:', response.status);
+        setEmails([]);
       }
     } catch (error) {
       console.error('❌ Error loading emails from backend:', error);
-      // Fallback to localStorage
-      const storedEmails = localStorage.getItem('consultationEmails');
-      if (storedEmails) {
-        setEmails(JSON.parse(storedEmails));
-      }
+      setEmails([]);
     }
     setLoading(false);
   };
@@ -93,14 +85,15 @@ export function EmailAdmin() {
 
   const exportToCSV = () => {
     const csvContent = [
-      ['Email', 'Amount', 'Target Year', 'Monthly Contribution', 'Risk Profile', 'Timestamp'],
+      ['Email', 'Amount', 'Target Year', 'Monthly Contribution', 'Risk Profile', 'Timestamp', 'IP Address'],
       ...emails.map(email => [
         email.email,
         email.investmentData.amount,
         email.investmentData.targetYear,
         email.investmentData.monthlyContribution,
         email.investmentData.riskProfile,
-        new Date(email.timestamp).toLocaleString()
+        new Date(email.timestamp).toLocaleString(),
+        email.ip || 'N/A'
       ])
     ].map(row => row.join(',')).join('\n');
 
