@@ -5,7 +5,11 @@ import { Alert, AlertDescription } from "./ui/alert";
 import { ChevronDown, BookOpen, AlertTriangle, ExternalLink } from "lucide-react";
 import { useState } from "react";
 
-export function AboutPage() {
+interface AboutPageProps {
+  onPageChange: (page: string) => void;
+}
+
+export function AboutPage({ onPageChange }: AboutPageProps) {
   const [openFaq, setOpenFaq] = useState<string | null>(null);
 
   const assumptions = [
@@ -49,12 +53,11 @@ export function AboutPage() {
     <div style={{ paddingBottom: '48px' }} className="min-h-screen bg-background mt-4">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-semibold text-foreground mb-4">
-            About NestValue.us - Financial Advisor Online for Americans
-          </h1>
+        <h1 className="text-3xl font-semibold text-foreground mb-4">
+          About NestValue | AI-Powered Investment Forecast Tool USA
+        </h1>
           <p className="text-xl text-muted-foreground">
-            Learn how our investment forecasting tool compares bank vs stock returns, 
-            shows you how much your money will grow over time, and helps you find the best investment plan for beginners USA.
+            Learn how NestValue uses AI & historical data to forecast savings vs investments. Understand our assumptions, accuracy, and safe investing guidance.
           </p>
         </div>
 
@@ -93,13 +96,13 @@ export function AboutPage() {
           <CardContent>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Button 
-                onClick={() => window.location.hash = '#invest'}
+                onClick={() => onPageChange('input')}
                 className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white"
               >
                 Try Our Free Investment Calculator
               </Button>
               <Button 
-                onClick={() => window.location.hash = '#home'}
+                onClick={() => onPageChange('home')}
                 variant="outline"
                 className="border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30"
               >

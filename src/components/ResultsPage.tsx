@@ -14,10 +14,11 @@ interface ResultsPageProps {
     monthlyContribution: string;
     targetYear: string;
     riskProfile: string;
-  };
+  } | null;
+  onGetExpertAdvice?: () => void;
 }
 
-export function ResultsPage({ investmentData }: ResultsPageProps) {
+export function ResultsPage({ investmentData, onGetExpertAdvice }: ResultsPageProps) {
   const [backendData, setBackendData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [usingBackend, setUsingBackend] = useState(false);
@@ -401,11 +402,10 @@ export function ResultsPage({ investmentData }: ResultsPageProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
           <h1  className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4">
-            If I Invest {formatCurrency(principal)} Where Will It Be in {targetYear}?
+            If I Invest {formatCurrency(principal)} in USA, How Much by {targetYear}? | NestValue
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground">
-            See how much your {formatCurrency(principal)} will grow with compound interest over {years} years. 
-            Compare S&P 500 vs bank savings, mutual fund vs savings account returns, and find the best investment options USA.
+            Results for {formatCurrency(principal)} by {targetYear}. Compare bank savings vs S&P 500, crypto, bonds & gold. Find the best US investment option for your money.
             {monthlyContribution > 0 && ` Plus ${formatCurrency(monthlyContribution)} monthly contributions.`}
           </p>
           <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200">
@@ -646,6 +646,30 @@ export function ResultsPage({ investmentData }: ResultsPageProps) {
               <p className="text-sm text-red-600 dark:text-red-400 mt-2">
                 This represents the lowest projected outcome
               </p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Expert Advice Section */}
+        <div className="mt-12 text-center">
+          <Card className="shadow-lg border bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-950/20 dark:to-green-950/20">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Want Personalized Investment Advice?
+              </h3>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Get expert recommendations tailored to your specific situation, risk profile, and financial goals. 
+                Our certified financial advisors will help you create a customized investment strategy.
+              </p>
+              <Button 
+                onClick={() => onGetExpertAdvice && onGetExpertAdvice()}
+                className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-3 text-lg"
+              >
+                Get Expert Investment Strategy
+              </Button>
+              <div className="mt-4 text-sm text-muted-foreground">
+                ✓ Free consultation • ✓ Personalized recommendations • ✓ SEC registered advisors
+              </div>
             </CardContent>
           </Card>
         </div>

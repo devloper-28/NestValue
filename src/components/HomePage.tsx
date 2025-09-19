@@ -119,11 +119,11 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 id="hero-title" className="text-4xl font-semibold text-foreground leading-tight">
-                Free Investment Calculator USA — Grow Your Money 2025
-              </h1>
+        <h1 id="hero-title" className="text-4xl font-semibold text-foreground leading-tight">
+          Free Investment Calculator USA - Grow Your Money 2025
+        </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-              Free USA investment calculator. Compare savings vs investments. See how S&P 500, bonds, gold & crypto grow your money with compound interest.
+              Plan smarter with NestValue. Compare savings, stocks, crypto, bonds & gold. See how your money grows with compound interest in the USA.
               </p>
             </div>
             

@@ -5,6 +5,8 @@ import { HomePage } from './components/HomePage';
 import { InvestmentInputPage } from './components/InvestmentInputPage';
 import { ResultsPage } from './components/ResultsPage';
 import { AboutPage } from './components/AboutPage';
+import { PersonalizedInvestmentStrategy } from './components/PersonalizedInvestmentStrategy';
+import { EmailAdmin } from './components/EmailAdmin';
 
 interface InvestmentData {
   totalBalance: string;
@@ -47,6 +49,18 @@ export default function App() {
     window.history.pushState({}, '', '/results');
   };
 
+  const handleGetExpertAdvice = () => {
+    setCurrentPage('expert');
+    localStorage.setItem('currentPage', 'expert');
+    window.history.pushState({}, '', '/expert');
+  };
+
+  const handleBackToResults = () => {
+    setCurrentPage('results');
+    localStorage.setItem('currentPage', 'results');
+    window.history.pushState({}, '', '/results');
+  };
+
   const handlePageChange = (page: string) => {
     setCurrentPage(page);
     localStorage.setItem('currentPage', page);
@@ -84,9 +98,13 @@ export default function App() {
       case 'input':
         return <InvestmentInputPage onCalculate={handleCalculate} />;
       case 'results':
-        return <ResultsPage investmentData={investmentData} />;
+        return <ResultsPage investmentData={investmentData} onGetExpertAdvice={handleGetExpertAdvice} />;
+      case 'expert':
+        return <PersonalizedInvestmentStrategy investmentData={investmentData} onBackToResults={handleBackToResults} />;
       case 'about':
-        return <AboutPage />;
+        return <AboutPage onPageChange={handlePageChange} />;
+      case 'admin':
+        return <EmailAdmin />;
       default:
         return <HomePage onStartPlanning={handleStartPlanning} />;
     }

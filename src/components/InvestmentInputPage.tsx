@@ -118,11 +118,10 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 sm:mb-4 mt-4">
-            Savings vs Investment Calculator for Americans
+            Savings vs Investment Calculator USA | NestValue
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mt-4">
-            Compare stock vs bank returns, mutual fund vs savings account returns. See how much your money will grow with S&P 500, crypto, bonds, and gold. 
-            <br></br>Best investment planning tool for Americans - calculate your financial future.
+            Enter your balance & get forecasts. Compare banks, stocks, bonds, gold & crypto to see which investments grow your money fastest.
           </p>
           {hasSavedData && (
             <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200">
