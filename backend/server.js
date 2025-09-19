@@ -25,10 +25,14 @@ app.use('/api/calculations', require('./routes/calculations'));
 
 // Email collection endpoint
 const EMAILS_FILE = path.join(__dirname, 'emails.json');
+const CONTACTS_FILE = path.join(__dirname, 'contacts.json');
 
-// Initialize emails file if it doesn't exist
+// Initialize files if they don't exist
 if (!fs.existsSync(EMAILS_FILE)) {
   fs.writeFileSync(EMAILS_FILE, JSON.stringify([]));
+}
+if (!fs.existsSync(CONTACTS_FILE)) {
+  fs.writeFileSync(CONTACTS_FILE, JSON.stringify([]));
 }
 
 // Collect consultation emails
@@ -105,7 +109,7 @@ app.post('/api/contact', (req, res) => {
     // Read existing contacts
     let contacts = [];
     try {
-      const contactsData = fs.readFileSync(EMAILS_FILE, 'utf8');
+      const contactsData = fs.readFileSync(CONTACTS_FILE, 'utf8');
       contacts = JSON.parse(contactsData);
     } catch (error) {
       // File doesn't exist or is empty, start with empty array
@@ -116,7 +120,7 @@ app.post('/api/contact', (req, res) => {
     contacts.push(contactData);
 
     // Save contacts
-    fs.writeFileSync(EMAILS_FILE, JSON.stringify(contacts, null, 2));
+    fs.writeFileSync(CONTACTS_FILE, JSON.stringify(contacts, null, 2));
 
     console.log('📧 New contact form submission:', contactData);
     res.json({ success: true, message: 'Contact form submitted successfully' });
@@ -135,7 +139,7 @@ app.get('/api/contacts', (req, res) => {
   }
 
   try {
-    const contactsData = fs.readFileSync(EMAILS_FILE, 'utf8');
+    const contactsData = fs.readFileSync(CONTACTS_FILE, 'utf8');
     const contacts = JSON.parse(contactsData);
     res.json(contacts);
   } catch (error) {
