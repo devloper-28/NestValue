@@ -60,6 +60,7 @@
       },
       "scripts": {
             "dev": "vite",
-            "build": "vite build"
+            "build": "vite build && npm run copy-html",
+            "copy-html": "copy about.html build\\about.html && copy contact.html build\\contact.html && copy privacy.html build\\privacy.html && copy terms.html build\\terms.html && copy input.html build\\input.html && copy results.html build\\results.html && copy expert.html build\\expert.html"
       }
 }
