@@ -4,6 +4,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import { API_ENDPOINTS } from '../config/api';
 import './index.css';
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ export function ContactPage() {
     e.preventDefault();
     
     try {
-      const response = await fetch('https://nestvalue.onrender.com/api/contact', {
+      const response = await fetch(API_ENDPOINTS.SUBMIT_CONTACT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

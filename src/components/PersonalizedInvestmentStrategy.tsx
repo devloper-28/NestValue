@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Progress } from './ui/progress';
+import { API_ENDPOINTS } from '../config/api';
 import { 
   TrendingUp, 
   TrendingDown, 
@@ -48,8 +49,7 @@ export function PersonalizedInvestmentStrategy({ investmentData, onBackToResults
     e.preventDefault();
     if (email) {
       try {
-        // Send to backend
-        const response = await fetch('https://nestvalue.onrender.com/api/collect-email', {
+        const response = await fetch(API_ENDPOINTS.COLLECT_EMAIL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

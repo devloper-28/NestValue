@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Download, Mail, User, Calendar, DollarSign, Target } from 'lucide-react';
+import { API_ENDPOINTS, ADMIN_PASSWORD } from '../config/api';
 
 interface EmailData {
   email: string;
@@ -49,8 +50,8 @@ export function EmailAdmin() {
 
   const loadEmails = async () => {
     try {
-      // Always try to fetch from backend first
-      const response = await fetch('https://nestvalue.onrender.com/api/emails?password=nestvalue2025');
+      const response = await fetch(`${API_ENDPOINTS.GET_EMAILS}?password=${ADMIN_PASSWORD}`);
+      
       if (response.ok) {
         const backendEmails = await response.json();
         setEmails(backendEmails);
@@ -68,7 +69,8 @@ export function EmailAdmin() {
 
   const loadContacts = async () => {
     try {
-      const response = await fetch('https://nestvalue.onrender.com/api/contacts?password=nestvalue2025');
+      const response = await fetch(`${API_ENDPOINTS.GET_CONTACTS}?password=${ADMIN_PASSWORD}`);
+      
       if (response.ok) {
         const data = await response.json();
         setContacts(data);
