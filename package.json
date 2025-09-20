@@ -62,6 +62,7 @@
       "scripts": {
             "dev": "vite",
             "build": "vite build && npm run copy-html",
-            "copy-html": "copyfiles about.html contact.html privacy.html terms.html input.html results.html expert.html build/"
+            "copy-html": "copyfiles about.html contact.html privacy.html terms.html input.html results.html expert.html build/",
+            "postbuild": "echo 'Build completed successfully'"
       }
 }
