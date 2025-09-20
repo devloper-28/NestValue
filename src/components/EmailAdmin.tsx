@@ -226,18 +226,18 @@ export function EmailAdmin() {
 
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="emails" className="flex items-center gap-2">
+          <TabsList className="tabs-list">
+            <TabsTrigger value="emails" className="tabs-trigger">
               <Mail className="w-4 h-4" />
               Consultation Emails ({emails.length})
             </TabsTrigger>
-            <TabsTrigger value="contacts" className="flex items-center gap-2">
+            <TabsTrigger value="contacts" className="tabs-trigger">
               <MessageSquare className="w-4 h-4" />
               Contact Forms ({contacts.length})
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="emails" className="mt-6">
+          <TabsContent value="emails" className="tabs-content">
             {/* Stats for Emails */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
               <Card>
@@ -379,7 +379,7 @@ export function EmailAdmin() {
         )}
           </TabsContent>
 
-          <TabsContent value="contacts" className="mt-6">
+          <TabsContent value="contacts" className="tabs-content">
             {/* Stats for Contacts */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
               <Card>
