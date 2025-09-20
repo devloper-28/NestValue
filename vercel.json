@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/rewrite.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "rewrites": [
     {
       "source": "/about",
@@ -27,10 +32,6 @@
     {
       "source": "/expert",
       "destination": "/expert.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
     }
   ],
   "headers": [
