@@ -5,7 +5,7 @@
       "destination": "/about.html"
     },
     {
-      "source": "/privacy",
+      "source": "/privacy", 
       "destination": "/privacy.html"
     },
     {
