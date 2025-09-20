@@ -1,6 +1,34 @@
 {
   "rewrites": [
     {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/input",
+      "destination": "/input.html"
+    },
+    {
+      "source": "/results",
+      "destination": "/results.html"
+    },
+    {
+      "source": "/expert",
+      "destination": "/expert.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
