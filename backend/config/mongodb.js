@@ -4,6 +4,20 @@ const { MongoClient } = require('mongodb');
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017';
 const DB_NAME = process.env.DB_NAME || 'investment_forecast';
 
+// MongoDB connection options for production
+const MONGODB_OPTIONS = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: true,
+  sslValidate: false, // Set to false for Render compatibility
+  authSource: 'admin',
+  retryWrites: true,
+  w: 'majority',
+  serverSelectionTimeoutMS: 5000, // Keep trying to send operations for 5 seconds
+  socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
+  family: 4 // Use IPv4, skip trying IPv6
+};
+
 let client;
 let db;
 
@@ -11,9 +25,15 @@ let db;
 async function connectToMongoDB() {
   try {
     if (!client) {
-      client = new MongoClient(MONGODB_URI);
+      console.log('🔄 Attempting to connect to MongoDB...');
+      console.log('📍 Connection URI:', MONGODB_URI.replace(/\/\/.*@/, '//***:***@')); // Hide credentials in logs
+      
+      client = new MongoClient(MONGODB_URI, MONGODB_OPTIONS);
       await client.connect();
-      console.log('✅ Connected to MongoDB');
+      
+      // Test the connection
+      await client.db('admin').command({ ping: 1 });
+      console.log('✅ Connected to MongoDB successfully');
     }
     
     if (!db) {
@@ -22,7 +42,8 @@ async function connectToMongoDB() {
     
     return { client, db };
   } catch (error) {
-    console.error('❌ MongoDB connection error:', error);
+    console.error('❌ MongoDB connection error:', error.message);
+    console.error('🔍 Error details:', error);
     throw error;
   }
 }
