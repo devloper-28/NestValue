@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
-import { Download, Mail, User, Calendar, DollarSign, Target } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import { Download, Mail, User, Calendar, DollarSign, Target, Phone, MessageSquare } from 'lucide-react';
 import { API_ENDPOINTS, ADMIN_PASSWORD } from '../config/api';
 
 interface EmailData {
@@ -43,6 +44,7 @@ export function EmailAdmin() {
     if (authStatus === 'true') {
       setIsAuthenticated(true);
       loadEmails();
+      loadContacts();
     } else {
       setLoading(false);
     }
@@ -92,6 +94,7 @@ export function EmailAdmin() {
       setIsAuthenticated(true);
       localStorage.setItem('adminAuthenticated', 'true');
       loadEmails();
+      loadContacts();
       setError('');
     } else {
       setError('Invalid password');
@@ -221,31 +224,45 @@ export function EmailAdmin() {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <Card>
-            <CardContent className="p-6 text-center">
-              <div className="text-2xl font-bold text-foreground">{emails.length}</div>
-              <div className="text-sm text-muted-foreground">Total Requests</div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-6 text-center">
-              <div className="text-2xl font-bold text-foreground">
-                {emails.length > 0 ? formatCurrency(emails.reduce((sum, email) => sum + (email.investmentData?.amount ? parseFloat(email.investmentData.amount) : 0), 0)) : '$0'}
-              </div>
-              <div className="text-sm text-muted-foreground">Total Investment Value</div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-6 text-center">
-              <div className="text-2xl font-bold text-foreground">
-                {emails.length > 0 ? Math.round(emails.reduce((sum, email) => sum + (email.investmentData?.amount ? parseFloat(email.investmentData.amount) : 0), 0) / emails.length) : 0}
-              </div>
-              <div className="text-sm text-muted-foreground">Average Investment</div>
-            </CardContent>
-          </Card>
-        </div>
+        {/* Tabs */}
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="emails" className="flex items-center gap-2">
+              <Mail className="w-4 h-4" />
+              Consultation Emails ({emails.length})
+            </TabsTrigger>
+            <TabsTrigger value="contacts" className="flex items-center gap-2">
+              <MessageSquare className="w-4 h-4" />
+              Contact Forms ({contacts.length})
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="emails" className="mt-6">
+            {/* Stats for Emails */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              <Card>
+                <CardContent className="p-6 text-center">
+                  <div className="text-2xl font-bold text-foreground">{emails.length}</div>
+                  <div className="text-sm text-muted-foreground">Total Consultation Requests</div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-6 text-center">
+                  <div className="text-2xl font-bold text-foreground">
+                    {emails.length > 0 ? formatCurrency(emails.reduce((sum, email) => sum + (email.investmentData?.amount ? parseFloat(email.investmentData.amount) : 0), 0)) : '$0'}
+                  </div>
+                  <div className="text-sm text-muted-foreground">Total Investment Value</div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-6 text-center">
+                  <div className="text-2xl font-bold text-foreground">
+                    {emails.length > 0 ? Math.round(emails.reduce((sum, email) => sum + (email.investmentData?.amount ? parseFloat(email.investmentData.amount) : 0), 0) / emails.length) : 0}
+                  </div>
+                  <div className="text-sm text-muted-foreground">Average Investment</div>
+                </CardContent>
+              </Card>
+            </div>
 
         {/* Email List */}
         {emails.length === 0 ? (
@@ -360,6 +377,107 @@ export function EmailAdmin() {
             })}
           </div>
         )}
+          </TabsContent>
+
+          <TabsContent value="contacts" className="mt-6">
+            {/* Stats for Contacts */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              <Card>
+                <CardContent className="p-6 text-center">
+                  <div className="text-2xl font-bold text-foreground">{contacts.length}</div>
+                  <div className="text-sm text-muted-foreground">Total Contact Forms</div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-6 text-center">
+                  <div className="text-2xl font-bold text-foreground">
+                    {contacts.length > 0 ? Math.round(contacts.length / 7) : 0}
+                  </div>
+                  <div className="text-sm text-muted-foreground">This Week</div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-6 text-center">
+                  <div className="text-2xl font-bold text-foreground">
+                    {contacts.length > 0 ? Math.round(contacts.length / 30) : 0}
+                  </div>
+                  <div className="text-sm text-muted-foreground">This Month</div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact List */}
+            {contacts.length === 0 ? (
+              <Card>
+                <CardContent className="p-8 text-center">
+                  <MessageSquare className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold text-foreground mb-2">No contact forms yet</h3>
+                  <p className="text-muted-foreground">Contact forms will appear here when users submit them.</p>
+                </CardContent>
+              </Card>
+            ) : (
+              <div className="space-y-4">
+                {contacts.map((contact, index) => (
+                  <Card key={contact.id || index} className="shadow-lg border">
+                    <CardHeader>
+                      <div className="flex items-center justify-between">
+                        <CardTitle className="flex items-center gap-2">
+                          <MessageSquare className="w-5 h-5 text-green-600" />
+                          Contact Form #{index + 1}
+                        </CardTitle>
+                        <Badge variant="outline">
+                          {new Date(contact.timestamp).toLocaleDateString()}
+                        </Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Contact Info */}
+                        <div>
+                          <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                            <User className="w-4 h-4" />
+                            Contact Information
+                          </h4>
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm text-muted-foreground">Name:</span>
+                              <span className="text-sm font-medium text-foreground">{contact.name}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm text-muted-foreground">Email:</span>
+                              <span className="text-sm font-medium text-foreground">{contact.email}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm text-muted-foreground">Subject:</span>
+                              <span className="text-sm font-medium text-foreground">{contact.subject}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm text-muted-foreground">Date:</span>
+                              <span className="text-sm font-medium text-foreground">
+                                {new Date(contact.timestamp).toLocaleString()}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Message */}
+                        <div>
+                          <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                            <MessageSquare className="w-4 h-4" />
+                            Message
+                          </h4>
+                          <div className="bg-muted p-4 rounded-lg">
+                            <p className="text-sm text-foreground whitespace-pre-wrap">{contact.message}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );
