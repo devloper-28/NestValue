@@ -56,11 +56,12 @@
       "devDependencies": {
             "@types/node": "^20.10.0",
             "@vitejs/plugin-react-swc": "^3.10.2",
+            "copyfiles": "^2.4.1",
             "vite": "6.3.5"
       },
       "scripts": {
             "dev": "vite",
             "build": "vite build && npm run copy-html",
-            "copy-html": "copy about.html build\\about.html && copy contact.html build\\contact.html && copy privacy.html build\\privacy.html && copy terms.html build\\terms.html && copy input.html build\\input.html && copy results.html build\\results.html && copy expert.html build\\expert.html"
+            "copy-html": "copyfiles about.html contact.html privacy.html terms.html input.html results.html expert.html build/"
       }
 }
