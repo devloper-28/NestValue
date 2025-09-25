@@ -259,9 +259,138 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
         </section>
       )}
 
-      {/* Features Section */}
-      <section className="max-w-7xl mx-auto px-6 pb-20" aria-labelledby="features-title">
-        <h2 id="features-title" className="sr-only">Investment Calculator Features</h2>
+      {/* Educational Content Section */}
+      <section className="max-w-7xl mx-auto px-6 pb-12" aria-labelledby="education-title">
+        <div className="text-center mb-12">
+          <h2 id="education-title" className="text-3xl font-bold text-foreground mb-4">
+            Complete Investment Education Center
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Learn everything you need to know about investing in the USA. From beginner basics to advanced strategies, 
+            we've got you covered with comprehensive, easy-to-understand financial education.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          {/* Investment Basics */}
+          <Card className="p-8  from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-blue-200 dark:border-blue-800">
+            <h3 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-6">Investment Basics for Beginners</h3>
+            <div className="space-y-4 text-blue-800 dark:text-blue-200">
+              <div>
+                <h4 className="font-semibold text-lg mb-2">What is Investing?</h4>
+                <p className="text-sm mb-3">
+                  Investing is putting your money to work to earn more money over time. Instead of keeping cash in a savings account 
+                  earning minimal interest, you can invest in assets that historically grow in value.
+                </p>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Types of Investments</h4>
+                <ul className="text-sm space-y-2">
+                  <li>• <strong>Stocks:</strong> Ownership shares in companies (S&P 500, individual stocks)</li>
+                  <li>• <strong>Bonds:</strong> Loans to governments or corporations (Treasury bonds, corporate bonds)</li>
+                  <li>• <strong>Real Estate:</strong> Physical property or REITs (Real Estate Investment Trusts)</li>
+                  <li>• <strong>Commodities:</strong> Gold, silver, oil, agricultural products</li>
+                  <li>• <strong>Cryptocurrency:</strong> Digital currencies like Bitcoin and Ethereum</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Risk vs Return</h4>
+                <p className="text-sm">
+                  Generally, higher potential returns come with higher risk. Understanding your risk tolerance is crucial 
+                  for building a successful investment portfolio that matches your financial goals and timeline.
+                </p>
+              </div>
+            </div>
+          </Card>
+
+          {/* Market Performance Guide */}
+          <Card className="p-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 border-green-200 dark:border-green-800">
+            <h3 className="text-2xl font-bold text-green-900 dark:text-green-100 mb-6">Understanding Market Performance</h3>
+            <div className="space-y-4 text-green-800 dark:text-green-200">
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Historical Returns (1926-2023)</h4>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="bg-white/50 dark:bg-gray-800/50 p-3 rounded-lg">
+                    <h5 className="font-semibold text-green-700 dark:text-green-300">S&P 500</h5>
+                    <p className="text-2xl font-bold">10.2%</p>
+                    <p className="text-xs">Annual average return</p>
+                  </div>
+                  <div className="bg-white/50 dark:bg-gray-800/50 p-3 rounded-lg">
+                    <h5 className="font-semibold text-green-700 dark:text-green-300">10-Year Treasury</h5>
+                    <p className="text-2xl font-bold">5.2%</p>
+                    <p className="text-xs">Annual average return</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Why S&P 500 Outperforms</h4>
+                <ul className="text-sm space-y-1">
+                  <li>• <strong>Diversification:</strong> 500 largest US companies across all sectors</li>
+                  <li>• <strong>Economic Growth:</strong> Benefits from overall US economic expansion</li>
+                  <li>• <strong>Reinvestment:</strong> Dividends and capital gains compound over time</li>
+                  <li>• <strong>Innovation:</strong> Includes companies driving technological advancement</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Market Volatility</h4>
+                <p className="text-sm">
+                  Markets go up and down in the short term, but historically trend upward over long periods. 
+                  The key is staying invested through market cycles rather than trying to time the market.
+                </p>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        {/* Investment Strategies */}
+        <Card className="p-8 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 border-purple-200 dark:border-purple-800 mb-12">
+          <h3 className="text-2xl font-bold text-purple-900 dark:text-purple-100 mb-6 text-center">Proven Investment Strategies</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-purple-600">1</span>
+              </div>
+              <h4 className="font-semibold text-lg mb-2 text-purple-900 dark:text-purple-100">Dollar-Cost Averaging</h4>
+              <p className="text-sm text-purple-800 dark:text-purple-200">
+                Invest a fixed amount regularly regardless of market conditions. This reduces the impact of market volatility 
+                and helps you buy more shares when prices are low.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-purple-600">2</span>
+              </div>
+              <h4 className="font-semibold text-lg mb-2 text-purple-900 dark:text-purple-100">Asset Allocation</h4>
+              <p className="text-sm text-purple-800 dark:text-purple-200">
+                Divide your investments among different asset classes (stocks, bonds, cash) based on your age, 
+                risk tolerance, and time horizon. Rebalance periodically.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-purple-600">3</span>
+              </div>
+              <h4 className="font-semibold text-lg mb-2 text-purple-900 dark:text-purple-100">Long-Term Focus</h4>
+              <p className="text-sm text-purple-800 dark:text-purple-200">
+                Stay invested for the long term. Time in the market beats timing the market. 
+                Historical data shows that staying invested through market cycles leads to better returns.
+              </p>
+            </div>
+          </div>
+        </Card>
+
+        {/* Features Section */}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-4">Our Investment Tools</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Use our advanced calculators and tools to make informed investment decisions based on real market data and proven strategies.
+          </p>
+        </div>
+        
         <div className="grid md:grid-cols-3 gap-8">
           <Card className="p-8 text-center space-y-4 bg-card shadow-lg hover:shadow-xl transition-shadow border">
             <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto">
@@ -294,6 +423,182 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
           </Card>
         </div>
       </section>
+
+      {/* Blog-Style Articles Section */}
+      <section className="max-w-7xl mx-auto px-6 pb-20" aria-labelledby="articles-title">
+        <div className="text-center mb-12 mt-4">
+          <h2 id="articles-title" className="text-3xl font-bold text-foreground mb-4">
+            Latest Investment Insights & Articles
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Stay informed with our comprehensive guides, market analysis, and expert insights to help you make better investment decisions.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          {/* Featured Article */}
+          <Card className="lg:col-span-2  from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-blue-200 dark:border-blue-800 overflow-hidden">
+            <div className="md:flex">
+              <div className="md:w-1/3 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 p-8 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-blue-900 dark:text-blue-100">Featured Article</h3>
+                </div>
+              </div>
+              <div className="md:w-2/3 p-8">
+                <h3 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-4">
+                  How to Build a $1 Million Investment Portfolio: A Step-by-Step Guide for 2025
+                </h3>
+                <p className="text-blue-800 dark:text-blue-200 mb-4">
+                  Discover the proven strategies used by successful investors to build wealth over time. Learn about asset allocation, 
+                  dollar-cost averaging, and the power of compound interest in creating long-term wealth.
+                </p>
+                  <div className="flex items-center space-x-4 text-sm text-blue-600 dark:text-blue-400">
+                    <span>📅 January 2025</span>
+                    <span>⏱️ 8 min read</span>
+                    <span>👁️ 2.3k views</span>
+                  </div>
+              </div>
+            </div>
+          </Card>
+
+          {/* Article 1 */}
+          <Card className="bg-card shadow-lg hover:shadow-xl transition-shadow border">
+            <div className="p-6">
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-4 h-4 rounded-full flex-shrink-0 shadow-sm" style={{backgroundColor: '#10b981'}}></div>
+                <span className="text-sm text-green-600 font-medium">Market Analysis</span>
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                S&P 500 vs Bank Savings: Which is Better for Your Money in 2025?
+              </h3>
+              <p className="text-muted-foreground mb-4 text-sm">
+                A comprehensive comparison of traditional bank savings versus S&P 500 index funds. 
+                We analyze historical returns, risk factors, and when each option makes sense for different investors.
+              </p>
+              <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                <span>📅 December 2024</span>
+                <span>⏱️ 6 min read</span>
+              </div>
+            </div>
+          </Card>
+
+          {/* Article 2 */}
+          <Card className="bg-card shadow-lg hover:shadow-xl transition-shadow border">
+            <div className="p-6">
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-4 h-4 rounded-full flex-shrink-0 shadow-sm" style={{backgroundColor: '#8b5cf6'}}></div>
+                <span className="text-sm text-purple-600 font-medium">Investment Strategy</span>
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                The Complete Guide to Dollar-Cost Averaging: Build Wealth Consistently
+              </h3>
+              <p className="text-muted-foreground mb-4 text-sm">
+                Learn how dollar-cost averaging can help you build wealth regardless of market conditions. 
+                Discover the psychology behind this strategy and how to implement it effectively.
+              </p>
+              <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                <span>📅 December 2024</span>
+                <span>⏱️ 7 min read</span>
+              </div>
+            </div>
+          </Card>
+
+          {/* Article 3 */}
+          <Card className="bg-card shadow-lg hover:shadow-xl transition-shadow border">
+            <div className="p-6">
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-4 h-4 rounded-full flex-shrink-0 shadow-sm" style={{backgroundColor: '#f97316'}}></div>
+                <span className="text-sm text-orange-600 font-medium">Risk Management</span>
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                Understanding Investment Risk: How to Protect Your Portfolio
+              </h3>
+              <p className="text-muted-foreground mb-4 text-sm">
+                Everything you need to know about investment risk, from market volatility to diversification strategies. 
+                Learn how to assess your risk tolerance and build a balanced portfolio.
+              </p>
+              <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                <span>📅 November 2024</span>
+                <span>⏱️ 9 min read</span>
+              </div>
+            </div>
+          </Card>
+
+          {/* Article 4 */}
+          <Card className="bg-card shadow-lg hover:shadow-xl transition-shadow border">
+            <div className="p-6">
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-4 h-4 rounded-full flex-shrink-0 shadow-sm" style={{backgroundColor: '#3b82f6'}}></div>
+                <span className="text-sm text-blue-600 font-medium">Beginner Guide</span>
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                Investment Calculator: How Much Will $10,000 Grow in 10 Years?
+              </h3>
+              <p className="text-muted-foreground mb-4 text-sm">
+                Use our investment calculator to see how different investment strategies can grow your money over time. 
+                Compare bank savings, S&P 500, bonds, and crypto returns with real examples.
+              </p>
+              <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                <span>📅 November 2024</span>
+                <span>⏱️ 5 min read</span>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        {/* FAQ Section */}
+        <Card className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-900/20 dark:to-blue-950/20 border-gray-200 dark:border-gray-800">
+          <div className="p-8">
+            <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Frequently Asked Questions</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">How much should I invest vs keep in savings?</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Keep 3-6 months of expenses in high-yield savings for emergencies, then invest the rest based on your risk tolerance and timeline.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">What's the difference between stocks and bonds?</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Stocks represent ownership in companies (higher risk/reward), while bonds are loans to governments or corporations (lower risk/return).
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Is cryptocurrency a good investment?</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Crypto is highly volatile and speculative. Only invest what you can afford to lose, and consider it a small portion of a diversified portfolio.
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">How do I start investing with little money?</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Start with low-cost index funds or ETFs. Many platforms allow you to start with as little as $25-100 and offer fractional shares.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Should I invest in individual stocks or index funds?</h4>
+                  <p className="text-sm text-muted-foreground">
+                    For most investors, index funds are better due to diversification and lower costs. Individual stocks require more research and carry higher risk.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">When should I rebalance my portfolio?</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Rebalance annually or when your asset allocation drifts more than 5% from your target. This helps maintain your desired risk level.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </section>
+
     </main>
   );
 }

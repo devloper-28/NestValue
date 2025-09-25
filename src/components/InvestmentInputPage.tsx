@@ -235,13 +235,61 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
           </div>
 
           <div className="space-y-4 sm:space-y-6">
+            {/* Educational Content */}
+            <Card className=" from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-blue-200 dark:border-blue-800">
+              <CardContent className="p-4 sm:p-6">
+                <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-4 text-lg">Complete Investment Guide for Beginners</h3>
+                <div className="space-y-4 text-sm text-blue-800 dark:text-blue-200">
+                  <div>
+                    <h4 className="font-semibold mb-2">Understanding Investment Returns</h4>
+                    <p className="mb-2">Different investment types offer varying levels of risk and return:</p>
+                    <ul className="space-y-1 ml-4">
+                      <li>• <strong>Bank Savings:</strong> 0.5-4% APY, FDIC insured, lowest risk</li>
+                      <li>• <strong>S&P 500 Index:</strong> 7-10% historical average, moderate risk</li>
+                      <li>• <strong>Government Bonds:</strong> 3-5% APY, very low risk</li>
+                      <li>• <strong>Gold:</strong> 2-4% historical, hedge against inflation</li>
+                      <li>• <strong>Cryptocurrency:</strong> Highly volatile, high risk/reward</li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-2">The Power of Compound Interest</h4>
+                    <p className="mb-2">Your money grows exponentially over time. A $10,000 investment at 7% annual return becomes:</p>
+                    <ul className="space-y-1 ml-4">
+                      <li>• <strong>10 years:</strong> $19,672 (97% growth)</li>
+                      <li>• <strong>20 years:</strong> $38,697 (287% growth)</li>
+                      <li>• <strong>30 years:</strong> $76,123 (661% growth)</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold mb-2">Risk vs Reward Strategy</h4>
+                    <div className="grid grid-cols-1 gap-3">
+                      <div className="bg-white/50 dark:bg-gray-800/50 p-3 rounded-lg">
+                        <h5 className="font-semibold text-green-700 dark:text-green-300">Conservative (Low Risk)</h5>
+                        <p className="text-xs">High-yield savings, CDs, government bonds. 2-4% returns, very safe.</p>
+                      </div>
+                      <div className="bg-white/50 dark:bg-gray-800/50 p-3 rounded-lg">
+                        <h5 className="font-semibold text-blue-700 dark:text-blue-300">Moderate (Medium Risk)</h5>
+                        <p className="text-xs">S&P 500 index funds, balanced mutual funds. 6-8% returns, moderate risk.</p>
+                      </div>
+                      <div className="bg-white/50 dark:bg-gray-800/50 p-3 rounded-lg">
+                        <h5 className="font-semibold text-purple-700 dark:text-purple-300">Aggressive (High Risk)</h5>
+                        <p className="text-xs">Individual stocks, crypto, growth funds. 8%+ potential, higher risk.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             {formData.totalBalance && parseFloat(formData.totalBalance) > 0 && (
               <Card className="bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800">
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex items-start space-x-3">
                     <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mt-1 flex-shrink-0" />
                     <div className="min-w-0">
-                      <h3 className="font-semibold text-green-900 dark:text-green-100 mb-2 text-sm sm:text-base">Smart Investment Advice</h3>
+                      <h3 className="font-semibold text-green-900 dark:text-green-100 mb-2 text-sm sm:text-base">Personalized Investment Strategy</h3>
                       <div className="text-xs sm:text-sm text-green-800 dark:text-green-200 space-y-2">
                         <p><strong>Total Balance:</strong> ${parseFloat(formData.totalBalance).toLocaleString()}</p>
                         {formData.amount && (
@@ -263,18 +311,45 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
               </Card>
             )}
 
-            <Card className="bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
+            <Card className="bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800">
               <CardContent className="p-4 sm:p-6">
-                <div className="flex items-start space-x-3">
-                  <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mt-1 flex-shrink-0" />
-                  <div className="min-w-0">
-                    <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-2 text-sm sm:text-base">Investment Tips</h3>
-                    <ul className="text-xs sm:text-sm text-blue-800 dark:text-blue-200 space-y-1">
-                      <li>• Higher risk may mean higher reward</li>
-                      <li>• Diversification helps reduce risk</li>
-                      <li>• Time in market beats timing the market</li>
-                      <li>• Regular contributions compound growth</li>
-                    </ul>
+                <h3 className="font-semibold text-orange-900 dark:text-orange-100 mb-3 text-base">Investment Mistakes to Avoid</h3>
+                <div className="space-y-2 text-sm text-orange-800 dark:text-orange-200">
+                  <div className="flex items-start space-x-2">
+                    <span className="text-red-500 text-xs mt-1">✗</span>
+                    <span><strong>Market Timing:</strong> Don't try to time the market - time in market beats timing</span>
+                  </div>
+                  <div className="flex items-start space-x-2">
+                    <span className="text-red-500 text-xs mt-1">✗</span>
+                    <span><strong>High Fees:</strong> Avoid expensive mutual funds - low-cost index funds often perform better</span>
+                  </div>
+                  <div className="flex items-start space-x-2">
+                    <span className="text-red-500 text-xs mt-1">✗</span>
+                    <span><strong>Emotional Decisions:</strong> Don't sell during market downturns - stay the course</span>
+                  </div>
+                  <div className="flex items-start space-x-2">
+                    <span className="text-red-500 text-xs mt-1">✗</span>
+                    <span><strong>Lack of Diversification:</strong> Don't put all eggs in one basket - spread risk</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-purple-50 dark:bg-purple-900/20 border-purple-200 dark:border-purple-800">
+              <CardContent className="p-4 sm:p-6">
+                <h3 className="font-semibold text-purple-900 dark:text-purple-100 mb-3 text-base">Best Investment Strategies for 2025</h3>
+                <div className="space-y-3 text-sm text-purple-800 dark:text-purple-200">
+                  <div>
+                    <h4 className="font-semibold mb-1">Dollar-Cost Averaging</h4>
+                    <p className="text-xs">Invest the same amount regularly regardless of market conditions. This reduces the impact of market volatility.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1">Asset Allocation by Age</h4>
+                    <p className="text-xs">Rule of thumb: 100 minus your age = percentage in stocks. Rest in bonds and cash.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1">Tax-Advantaged Accounts</h4>
+                    <p className="text-xs">Maximize 401(k), IRA, and Roth IRA contributions before investing in taxable accounts.</p>
                   </div>
                 </div>
               </CardContent>
@@ -282,9 +357,10 @@ export function InvestmentInputPage({ onCalculate }: InvestmentInputPageProps) {
 
             <Alert>
               <AlertDescription>
-                <strong>Remember:</strong> This tool provides educational projections only. 
-                Past performance doesn't guarantee future results. Always consult with a 
-                financial advisor for personalized advice.
+                <strong>Important:</strong> This calculator provides educational projections based on historical averages. 
+                Past performance doesn't guarantee future results. Market conditions, economic factors, and individual 
+                circumstances can significantly impact actual returns. Always consult with a qualified financial advisor 
+                for personalized investment advice tailored to your specific situation and risk tolerance.
               </AlertDescription>
             </Alert>
           </div>

@@ -84,27 +84,18 @@ export function ContactPage() {
                   <Mail className="h-6 w-6 text-primary mt-1" />
                   <div className='ml-2'>
                     <h3 className="font-semibold text-foreground">Email</h3>
-                    <p className="text-muted-foreground">support@nestvalue.us</p>
+                    <p className="text-muted-foreground">wertrends@gmail.com</p>
                     <p className="text-sm text-muted-foreground">We'll respond within 24 hours</p>
                   </div>
                 </div>
                 
 
-                <div className="flex items-start space-x-4">
-                  <Phone className="h-6 w-6 text-primary mt-1" />
-                  <div className='ml-2'>
-                    <h3 className="font-semibold text-foreground">Phone</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                    <p className="text-sm text-muted-foreground">Mon-Fri, 9AM-6PM EST</p>
-                  </div>
-                </div>
-
+              
                 <div className="flex items-start space-x-4">
                   <MapPin className="h-6 w-6 text-primary mt-1" />
                   <div className='ml-2'>
                     <h3 className="font-semibold text-foreground">Address</h3>
                     <p className="text-muted-foreground">
-                      123 Financial District<br />
                       New York, NY 10004<br />
                       United States
                     </p>

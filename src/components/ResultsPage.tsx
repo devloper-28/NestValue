@@ -650,28 +650,188 @@ export function ResultsPage({ investmentData, onGetExpertAdvice }: ResultsPagePr
           </Card>
         </div>
 
-        {/* Expert Advice Section */}
-        <div className="mt-12 text-center">
-          <Card className="shadow-lg border bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-950/20 dark:to-green-950/20">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Want Personalized Investment Advice?
-              </h3>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Get expert recommendations tailored to your specific situation, risk profile, and financial goals. 
-                Our certified financial advisors will help you create a customized investment strategy.
-              </p>
-              <Button 
-                onClick={() => onGetExpertAdvice && onGetExpertAdvice()}
-                className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-3 text-lg"
-              >
-                Get Expert Investment Strategy
-              </Button>
-              <div className="mt-4 text-sm text-muted-foreground">
-                ✓ Free consultation • ✓ Personalized recommendations • ✓ SEC registered advisors
+        {/* Educational Content Section */}
+        <div className="mt-12 space-y-8">
+          {/* Investment Education */}
+          <Card className="shadow-lg border">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold text-foreground">Understanding Investment Returns: A Complete Guide</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="prose prose-gray dark:prose-invert max-w-none">
+                <h3 className="text-xl font-semibold text-foreground mb-4">Why S&P 500 Outperforms Bank Savings</h3>
+                <p className="text-muted-foreground mb-4">
+                  The S&P 500 has historically averaged 7-10% annual returns over long periods, significantly outperforming 
+                  bank savings accounts (typically 0.5-4% APY). This difference compounds dramatically over time due to 
+                  the power of compound interest.
+                </p>
+                
+                <h3 className="text-xl font-semibold text-foreground mb-4">Investment Options Explained</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <div className="border-l-4 border-blue-500 pl-4">
+                      <h4 className="font-semibold text-foreground">Bank Savings (0.5-4% APY)</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Safe but low returns. Best for emergency funds and short-term goals. 
+                        FDIC insured up to $250,000 per account.
+                      </p>
+                    </div>
+                    <div className="border-l-4 border-green-500 pl-4">
+                      <h4 className="font-semibold text-foreground">S&P 500 Index Funds (7-10% historical)</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Diversified exposure to 500 largest US companies. Lower risk than individual stocks, 
+                        higher returns than bonds over long periods.
+                      </p>
+                    </div>
+                    <div className="border-l-4 border-yellow-500 pl-4">
+                      <h4 className="font-semibold text-foreground">Government Bonds (3-5% APY)</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Low-risk fixed income. Good for conservative investors and portfolio diversification. 
+                        Backed by US government.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="border-l-4 border-purple-500 pl-4">
+                      <h4 className="font-semibold text-foreground">Gold (2-4% historical)</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Hedge against inflation and market volatility. Physical gold or gold ETFs. 
+                        Not correlated with stock market.
+                      </p>
+                    </div>
+                    <div className="border-l-4 border-orange-500 pl-4">
+                      <h4 className="font-semibold text-foreground">Cryptocurrency (Highly volatile)</h4>
+                      <p className="text-sm text-muted-foreground">
+                        High risk, high potential reward. Bitcoin and Ethereum are most established. 
+                        Only invest what you can afford to lose.
+                      </p>
+                    </div>
+                    <div className="border-l-4 border-indigo-500 pl-4">
+                      <h4 className="font-semibold text-foreground">Diversified Portfolio (6-8% balanced)</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Mix of stocks, bonds, and other assets. Reduces risk through diversification. 
+                        Best for most long-term investors.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-semibold text-foreground mb-4">Risk Management Strategies</h3>
+                <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+                  <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">The 3-Bucket Strategy</h4>
+                  <div className="grid md:grid-cols-3 gap-4 text-sm">
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span className="text-green-600 font-bold">1</span>
+                      </div>
+                      <h5 className="font-semibold text-foreground mb-1">Emergency Fund</h5>
+                      <p className="text-muted-foreground">3-6 months expenses in high-yield savings</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span className="text-blue-600 font-bold">2</span>
+                      </div>
+                      <h5 className="font-semibold text-foreground mb-1">Stable Growth</h5>
+                      <p className="text-muted-foreground">S&P 500 index funds for long-term growth</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span className="text-purple-600 font-bold">3</span>
+                      </div>
+                      <h5 className="font-semibold text-foreground mb-1">Higher Risk</h5>
+                      <p className="text-muted-foreground">Individual stocks, crypto, alternative investments</p>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-semibold text-foreground mb-4">Common Investment Mistakes to Avoid</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-red-600 text-sm">✗</span>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-foreground">Market Timing</h5>
+                        <p className="text-sm text-muted-foreground">Trying to time the market usually leads to lower returns</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-red-600 text-sm">✗</span>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-foreground">High Fees</h5>
+                        <p className="text-sm text-muted-foreground">Expensive mutual funds can eat into your returns</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-red-600 text-sm">✗</span>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-foreground">Emotional Decisions</h5>
+                        <p className="text-sm text-muted-foreground">Selling during market downturns locks in losses</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-green-600 text-sm">✓</span>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-foreground">Dollar-Cost Averaging</h5>
+                        <p className="text-sm text-muted-foreground">Invest regularly regardless of market conditions</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-green-600 text-sm">✓</span>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-foreground">Low-Cost Index Funds</h5>
+                        <p className="text-sm text-muted-foreground">ETFs and index funds typically outperform managed funds</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-green-600 text-sm">✓</span>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-foreground">Long-Term Perspective</h5>
+                        <p className="text-sm text-muted-foreground">Stay invested through market cycles for best results</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
+
+          {/* Expert Advice Section */}
+          <div className="text-center">
+            <Card className="shadow-lg border  from-blue-50 to-green-50 dark:from-blue-950/20 dark:to-green-950/20">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-foreground mb-4">
+                  Want Personalized Investment Advice?
+                </h3>
+                <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                  Get expert recommendations tailored to your specific situation, risk profile, and financial goals. 
+                  Our certified financial advisors will help you create a customized investment strategy.
+                </p>
+                <Button 
+                  onClick={() => onGetExpertAdvice && onGetExpertAdvice()}
+                  className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-3 text-lg"
+                >
+                  Get Expert Investment Strategy
+                </Button>
+                <div className="mt-4 text-sm text-muted-foreground">
+                  ✓ Free consultation • ✓ Personalized recommendations • ✓ SEC registered advisors
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </div>
