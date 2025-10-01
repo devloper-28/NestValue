@@ -271,7 +271,66 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+        {/* Comprehensive Investment Guide */}
+        <div className="mb-16">
+          <Card className="p-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 border-green-200 dark:border-green-800">
+            <h3 className="text-3xl font-bold text-green-900 dark:text-green-100 mb-6">The Complete Guide to Building Wealth in 2025</h3>
+            <div className="space-y-6 text-green-800 dark:text-green-200">
+              <div>
+                <h4 className="text-xl font-semibold mb-3">Why Most Americans Struggle with Wealth Building</h4>
+                <p className="mb-4">
+                  According to recent studies, 64% of Americans live paycheck to paycheck, and only 39% have enough savings 
+                  to cover a $1,000 emergency. The primary reason? Most people keep their money in low-yield savings accounts 
+                  that barely keep up with inflation, effectively losing purchasing power over time.
+                </p>
+                <p className="mb-4">
+                  The solution isn't working harder or earning more - it's making your money work for you through smart 
+                  investments. This comprehensive guide will show you exactly how to transform your financial future.
+                </p>
+              </div>
+              
+              <div>
+                <h4 className="text-xl font-semibold mb-3">The Power of Compound Interest: Your Secret Weapon</h4>
+                <p className="mb-4">
+                  Albert Einstein called compound interest "the eighth wonder of the world." Here's why: If you invest 
+                  $10,000 at age 25 and earn 7% annually (the historical S&P 500 average), you'll have $149,744 by age 65. 
+                  But if you wait until age 35 to start, you'll only have $76,123 - less than half!
+                </p>
+                <p className="mb-4">
+                  The key is starting early and staying consistent. Even small monthly contributions can grow into 
+                  substantial wealth over time. Our investment calculator shows you exactly how much your money can grow 
+                  with different investment strategies.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-xl font-semibold mb-3">Investment Options Explained: From Safe to Aggressive</h4>
+                <div className="grid md:grid-cols-2 gap-6 mt-4">
+                  <div className="bg-white/50 dark:bg-green-900/20 p-4 rounded-lg">
+                    <h5 className="font-semibold text-green-900 dark:text-green-100 mb-2">Conservative Investments</h5>
+                    <ul className="text-sm space-y-1">
+                      <li>• High-yield savings accounts (4-5% APY)</li>
+                      <li>• Money market accounts (4-5% APY)</li>
+                      <li>• CDs and Treasury bills (4-5% APY)</li>
+                      <li>• Government bonds (4-5% APY)</li>
+                    </ul>
+                  </div>
+                  <div className="bg-white/50 dark:bg-green-900/20 p-4 rounded-lg">
+                    <h5 className="font-semibold text-green-900 dark:text-green-100 mb-2">Growth Investments</h5>
+                    <ul className="text-sm space-y-1">
+                      <li>• S&P 500 index funds (7-10% historical)</li>
+                      <li>• Total stock market funds (7-10% historical)</li>
+                      <li>• REITs and dividend stocks (6-8% historical)</li>
+                      <li>• International index funds (6-9% historical)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8 mb-12 ">
           {/* Investment Basics */}
           <Card className="p-8  from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-blue-200 dark:border-blue-800">
             <h3 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-6">Investment Basics for Beginners</h3>
@@ -544,6 +603,109 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
               <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                 <span>📅 November 2024</span>
                 <span>⏱️ 5 min read</span>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        {/* Advanced Investment Strategies */}
+        <div className="mb-16">
+          <Card className="p-8 bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-950/20 dark:to-violet-950/20 border-purple-200 dark:border-purple-800">
+            <h3 className="text-3xl font-bold text-purple-900 dark:text-purple-100 mb-6">Advanced Investment Strategies for 2025</h3>
+            <div className="space-y-6 text-purple-800 dark:text-purple-200">
+              <div>
+                <h4 className="text-xl font-semibold mb-3">Dollar-Cost Averaging: The Smart Investor's Secret</h4>
+                <p className="mb-4">
+                  Dollar-cost averaging (DCA) involves investing a fixed amount regularly, regardless of market conditions. 
+                  This strategy reduces the impact of market volatility and often results in better average purchase prices 
+                  over time. For example, investing $500 monthly in an S&P 500 index fund automatically buys more shares 
+                  when prices are low and fewer when prices are high.
+                </p>
+                <p className="mb-4">
+                  Studies show that DCA investors often outperform lump-sum investors because it removes emotion from 
+                  investment decisions and ensures consistent participation in market growth.
+                </p>
+              </div>
+              
+              <div>
+                <h4 className="text-xl font-semibold mb-3">Asset Allocation: The Foundation of Wealth Building</h4>
+                <p className="mb-4">
+                  The right asset allocation can account for 90% of your investment returns. A common rule is the "100 minus age" 
+                  rule: subtract your age from 100 to determine your stock allocation percentage. For example, a 30-year-old 
+                  might allocate 70% to stocks and 30% to bonds.
+                </p>
+                <div className="bg-white/50 dark:bg-purple-900/20 p-4 rounded-lg mt-4">
+                  <h5 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">Sample Asset Allocations by Age:</h5>
+                  <ul className="text-sm space-y-1">
+                    <li>• 20s: 80% stocks, 20% bonds (aggressive growth)</li>
+                    <li>• 30s: 70% stocks, 30% bonds (growth-focused)</li>
+                    <li>• 40s: 60% stocks, 40% bonds (balanced)</li>
+                    <li>• 50s: 50% stocks, 50% bonds (conservative growth)</li>
+                    <li>• 60+: 40% stocks, 60% bonds (income-focused)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-xl font-semibold mb-3">Tax-Efficient Investing Strategies</h4>
+                <p className="mb-4">
+                  Maximizing tax efficiency can significantly boost your long-term returns. Key strategies include:
+                </p>
+                <ul className="list-disc list-inside space-y-2 text-sm">
+                  <li>Maximize 401(k) and IRA contributions (up to $23,000 and $7,000 respectively in 2024)</li>
+                  <li>Use Roth accounts for tax-free growth if you expect higher taxes in retirement</li>
+                  <li>Hold tax-efficient index funds in taxable accounts</li>
+                  <li>Consider municipal bonds for high-income investors</li>
+                  <li>Use tax-loss harvesting to offset capital gains</li>
+                </ul>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        {/* Market Analysis and Trends */}
+        <div className="mb-16">
+          <Card className="p-8 bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-950/20 dark:to-red-950/20 border-orange-200 dark:border-orange-800">
+            <h3 className="text-3xl font-bold text-orange-900 dark:text-orange-100 mb-6">2025 Market Outlook and Investment Trends</h3>
+            <div className="space-y-6 text-orange-800 dark:text-orange-200">
+              <div>
+                <h4 className="text-xl font-semibold mb-3">Current Market Conditions and What They Mean for Investors</h4>
+                <p className="mb-4">
+                  As we enter 2025, investors face a complex landscape with both opportunities and challenges. Interest rates 
+                  have stabilized after the Federal Reserve's aggressive tightening cycle, creating new opportunities in 
+                  fixed-income investments while maintaining attractive yields in high-yield savings accounts.
+                </p>
+                <p className="mb-4">
+                  The stock market continues to show resilience despite economic uncertainties, with the S&P 500 maintaining 
+                  its long-term upward trend. However, increased volatility means investors should focus on diversification 
+                  and long-term strategies rather than short-term market timing.
+                </p>
+              </div>
+              
+              <div>
+                <h4 className="text-xl font-semibold mb-3">Emerging Investment Opportunities</h4>
+                <div className="grid md:grid-cols-2 gap-6 mt-4">
+                  <div className="bg-white/50 dark:bg-orange-900/20 p-4 rounded-lg">
+                    <h5 className="font-semibold text-orange-900 dark:text-orange-100 mb-2">Technology and AI</h5>
+                    <p className="text-sm mb-2">Artificial intelligence and automation continue to drive innovation across industries.</p>
+                    <p className="text-xs text-orange-700 dark:text-orange-300">Consider: Tech ETFs, AI-focused funds, automation stocks</p>
+                  </div>
+                  <div className="bg-white/50 dark:bg-orange-900/20 p-4 rounded-lg">
+                    <h5 className="font-semibold text-orange-900 dark:text-orange-100 mb-2">Sustainable Investing</h5>
+                    <p className="text-sm mb-2">ESG (Environmental, Social, Governance) investing is gaining mainstream acceptance.</p>
+                    <p className="text-xs text-orange-700 dark:text-orange-300">Consider: ESG ETFs, renewable energy funds, sustainable companies</p>
+                  </div>
+                  <div className="bg-white/50 dark:bg-orange-900/20 p-4 rounded-lg">
+                    <h5 className="font-semibold text-orange-900 dark:text-orange-100 mb-2">Real Estate</h5>
+                    <p className="text-sm mb-2">REITs offer exposure to real estate without direct property ownership.</p>
+                    <p className="text-xs text-orange-700 dark:text-orange-300">Consider: REIT ETFs, real estate crowdfunding, REIT mutual funds</p>
+                  </div>
+                  <div className="bg-white/50 dark:bg-orange-900/20 p-4 rounded-lg">
+                    <h5 className="font-semibold text-orange-900 dark:text-orange-100 mb-2">International Markets</h5>
+                    <p className="text-sm mb-2">Diversification beyond US markets can reduce risk and capture global growth.</p>
+                    <p className="text-xs text-orange-700 dark:text-orange-300">Consider: International ETFs, emerging market funds, global index funds</p>
+                  </div>
+                </div>
               </div>
             </div>
           </Card>

@@ -809,6 +809,88 @@ export function ResultsPage({ investmentData, onGetExpertAdvice }: ResultsPagePr
             </CardContent>
           </Card>
 
+          {/* Advanced Investment Strategies */}
+          <Card className="shadow-lg border">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold text-foreground">Advanced Investment Strategies for Maximum Returns</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="prose prose-gray dark:prose-invert max-w-none">
+                <h3 className="text-xl font-semibold text-foreground mb-4">Tax-Efficient Investing: Keep More of Your Returns</h3>
+                <p className="text-muted-foreground mb-4">
+                  Smart tax planning can significantly boost your after-tax returns. Here's how to maximize your investment 
+                  efficiency while minimizing your tax burden.
+                </p>
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg">
+                    <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Tax-Advantaged Accounts</h4>
+                    <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-1">
+                      <li>• 401(k): Up to $23,000 (2024) with employer match</li>
+                      <li>• Traditional IRA: Up to $7,000 (2024) with tax deduction</li>
+                      <li>• Roth IRA: Up to $7,000 (2024) with tax-free growth</li>
+                      <li>• HSA: Up to $4,300 (2024) with triple tax advantage</li>
+                    </ul>
+                  </div>
+                  <div className="bg-green-50 dark:bg-green-950/20 p-4 rounded-lg">
+                    <h4 className="font-semibold text-green-900 dark:text-green-100 mb-2">Tax-Efficient Fund Placement</h4>
+                    <ul className="text-sm text-green-800 dark:text-green-200 space-y-1">
+                      <li>• Taxable accounts: Index funds, ETFs</li>
+                      <li>• Tax-advantaged accounts: REITs, bonds</li>
+                      <li>• Roth accounts: High-growth stocks</li>
+                      <li>• Traditional accounts: Tax-deferred bonds</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="prose prose-gray dark:prose-invert max-w-none">
+                <h3 className="text-xl font-semibold text-foreground mb-4">Rebalancing Strategies: Maintaining Your Target Allocation</h3>
+                <p className="text-muted-foreground mb-4">
+                  Regular rebalancing ensures your portfolio stays aligned with your risk tolerance and investment goals. 
+                  Here are the most effective rebalancing strategies:
+                </p>
+                <div className="space-y-4">
+                  <div className="bg-gray-50 dark:bg-gray-900/20 p-4 rounded-lg">
+                    <h4 className="font-semibold text-foreground mb-2">Time-Based Rebalancing</h4>
+                    <p className="text-sm text-muted-foreground mb-2">Rebalance quarterly, semi-annually, or annually regardless of market conditions.</p>
+                    <p className="text-xs text-muted-foreground">Best for: Hands-off investors who prefer systematic approaches</p>
+                  </div>
+                  <div className="bg-gray-50 dark:bg-gray-900/20 p-4 rounded-lg">
+                    <h4 className="font-semibold text-foreground mb-2">Threshold-Based Rebalancing</h4>
+                    <p className="text-sm text-muted-foreground mb-2">Rebalance when any asset class deviates more than 5% from target allocation.</p>
+                    <p className="text-xs text-muted-foreground">Best for: Investors who want to minimize unnecessary trades</p>
+                  </div>
+                  <div className="bg-gray-50 dark:bg-gray-900/20 p-4 rounded-lg">
+                    <h4 className="font-semibold text-foreground mb-2">Cash Flow Rebalancing</h4>
+                    <p className="text-sm text-muted-foreground mb-2">Use new contributions to rebalance by directing them to underweighted assets.</p>
+                    <p className="text-xs text-muted-foreground">Best for: Investors making regular contributions</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="prose prose-gray dark:prose-invert max-w-none">
+                <h3 className="text-xl font-semibold text-foreground mb-4">Market Timing vs Time in Market: The Data Speaks</h3>
+                <p className="text-muted-foreground mb-4">
+                  Historical data consistently shows that time in the market beats timing the market. Here's what the research reveals:
+                </p>
+                <div className="bg-yellow-50 dark:bg-yellow-950/20 p-6 rounded-lg">
+                  <h4 className="font-semibold text-yellow-900 dark:text-yellow-100 mb-3">Key Statistics from Dalbar Studies:</h4>
+                  <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-y-2">
+                    <li>• Average investor returns: 5.04% annually (1993-2022)</li>
+                    <li>• S&P 500 returns: 9.85% annually (same period)</li>
+                    <li>• Performance gap: 4.81% annually due to poor timing decisions</li>
+                    <li>• Missing the 10 best days reduces returns by 50%</li>
+                    <li>• Missing the 30 best days results in negative returns</li>
+                  </ul>
+                </div>
+                <p className="text-muted-foreground mt-4">
+                  The lesson is clear: staying invested through market volatility is crucial for long-term success. 
+                  Our calculator shows you the power of consistent, long-term investing.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Expert Advice Section */}
           <div className="text-center">
             <Card className="shadow-lg border  from-blue-50 to-green-50 dark:from-blue-950/20 dark:to-green-950/20">
