@@ -365,7 +365,7 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
           </Card>
 
           {/* Market Performance Guide */}
-          <Card className="p-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 border-green-200 dark:border-green-800">
+          <Card className="p-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 border-green-200 dark:border-green-800" style={{ marginTop: '32px' }}>
             <h3 className="text-2xl font-bold text-green-900 dark:text-green-100 mb-6">Understanding Market Performance</h3>
             <div className="space-y-4 text-green-800 dark:text-green-200">
               <div>
