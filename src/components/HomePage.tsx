@@ -330,9 +330,9 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
           </Card>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-12 ">
+        <div className="grid lg:grid-cols-2 gap-8 mb-12" style={{ marginTop: '32px' }}>
           {/* Investment Basics */}
-          <Card className="p-8  from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-blue-200 dark:border-blue-800">
+          <Card  className="p-8  from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-blue-200 dark:border-blue-800">
             <h3 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-6">Investment Basics for Beginners</h3>
             <div className="space-y-4 text-blue-800 dark:text-blue-200">
               <div>
