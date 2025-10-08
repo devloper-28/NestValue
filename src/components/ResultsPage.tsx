@@ -6,6 +6,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import { Download, TrendingUp, TrendingDown, DollarSign, Loader2, Wifi, WifiOff } from "lucide-react";
 import { investmentOptions, generateProjectionData, calculateBestWorstCase, adjustReturnForRisk } from "../utils/calculations";
 import { apiService } from "../services/apiService";
+import { AdSenseBanner } from "./AdSense";
 
 interface ResultsPageProps {
   investmentData: {
@@ -808,6 +809,9 @@ export function ResultsPage({ investmentData, onGetExpertAdvice }: ResultsPagePr
               </div>
             </CardContent>
           </Card>
+
+          {/* AdSense Banner - Strategic placement after main results */}
+          <AdSenseBanner />
 
           {/* Advanced Investment Strategies */}
           <Card className="shadow-lg border">

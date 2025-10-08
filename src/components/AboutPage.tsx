@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { Alert, AlertDescription } from "./ui/alert";
 import { ChevronDown, BookOpen, AlertTriangle, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import { AdSenseInContent } from "./AdSense";
 
 interface AboutPageProps {
   onPageChange: (page: string) => void;
@@ -111,6 +112,9 @@ export function AboutPage({ onPageChange }: AboutPageProps) {
             </div>
           </CardContent>
         </Card>
+
+        {/* AdSense In-Content Ad */}
+        <AdSenseInContent />
 
         {/* FAQ Section */}
         <Card className="mb-8 shadow-lg border">

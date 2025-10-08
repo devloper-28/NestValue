@@ -34,6 +34,11 @@ export function PrivacyPolicy() {
                 Please read this privacy policy carefully. If you do not agree with the terms of this 
                 privacy policy, please do not access the site.
               </p>
+              <p>
+                <strong className="text-foreground">Your Privacy Matters:</strong> At NestValue, we understand that your financial information is sensitive. 
+                We are committed to protecting your privacy and ensuring the security of your personal data when using our 
+                investment calculator and financial planning tools. This policy outlines our comprehensive approach to data protection.
+              </p>
             </CardContent>
           </Card>
 
@@ -207,13 +212,46 @@ export function PrivacyPolicy() {
 
           <Card>
             <CardHeader>
+              <CardTitle className="text-2xl text-foreground">Data Retention</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, 
+                unless a longer retention period is required or permitted by law. Specifically:
+              </p>
+              <ul className="list-disc list-inside ml-4 space-y-1">
+                <li>Investment calculator data: Retained for 2 years for service improvement</li>
+                <li>Contact form submissions: Retained for 3 years for customer service</li>
+                <li>Analytics data: Retained for 26 months for website optimization</li>
+                <li>Marketing data: Retained until you opt out or request deletion</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-2xl text-foreground">International Data Transfers</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                Your information may be transferred to and processed in countries other than your country of residence. 
+                We ensure that such transfers comply with applicable data protection laws and implement appropriate 
+                safeguards to protect your personal information.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
               <CardTitle className="text-2xl text-foreground">Contact Us</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>If you have any questions about this Privacy Policy, please contact us:</p>
               <div className="bg-muted p-4 rounded-lg">
                 <p><strong>Website:</strong> https://nestvalue.us</p>
+                <p><strong>Email:</strong> privacy@nestvalue.us</p>
                 <p><strong>Address:</strong> New York, USA</p>
+                <p><strong>Response Time:</strong> We typically respond to privacy inquiries within 48 hours</p>
               </div>
             </CardContent>
           </Card>

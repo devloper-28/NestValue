@@ -215,6 +215,50 @@ export function TermsOfService() {
 
           <Card>
             <CardHeader>
+              <CardTitle className="text-2xl text-foreground">Limitation of Liability</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                In no event shall NestValue, nor its directors, employees, partners, agents, suppliers, or affiliates, 
+                be liable for any indirect, incidental, special, consequential, or punitive damages, including without 
+                limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your 
+                use of the Service.
+              </p>
+              <p>
+                Our total liability to you for all damages shall not exceed the amount you paid us for the Service 
+                in the 12 months preceding the claim, or $100, whichever is greater.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-2xl text-foreground">Indemnification</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                You agree to defend, indemnify, and hold harmless NestValue and its licensee and licensors, and their 
+                employees, contractors, agents, officers and directors, from and against any and all claims, damages, 
+                obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees).
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-2xl text-foreground">Severability</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining 
+                provisions of these Terms will remain in effect. These Terms constitute the entire agreement between 
+                us regarding our Service, and supersede and replace any prior agreements we might have between us regarding the Service.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
               <CardTitle className="text-2xl text-foreground">Contact Information</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
@@ -223,6 +267,7 @@ export function TermsOfService() {
                 <p><strong>Email:</strong> legal@nestvalue.us</p>
                 <p><strong>Website:</strong> https://nestvalue.us</p>
                 <p><strong>Address:</strong> NestValue, United States</p>
+                <p><strong>Business Hours:</strong> Monday-Friday, 9 AM - 6 PM EST</p>
               </div>
             </CardContent>
           </Card>

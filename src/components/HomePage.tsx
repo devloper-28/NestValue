@@ -4,6 +4,7 @@ import { Card } from "./ui/card";
 import { TrendingUp, DollarSign, PiggyBank, Wifi, WifiOff, RefreshCw } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { apiService } from "../services/apiService";
+import { AdSenseBanner } from "./AdSense";
 import "./index.css";
 
 interface HomePageProps {
@@ -481,6 +482,9 @@ export function HomePage({ onStartPlanning }: HomePageProps) {
             </p>
           </Card>
         </div>
+
+        {/* AdSense Banner - Strategic placement after content */}
+        <AdSenseBanner />
       </section>
 
       {/* Blog-Style Articles Section */}
