@@ -20,7 +20,7 @@ export function AdSense({ slot, format = 'auto', responsive = true, className = 
   }, []);
 
   return (
-    <div className={`adsense-container">
+    <div className={className}>
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}
@@ -37,9 +37,9 @@ export function AdSense({ slot, format = 'auto', responsive = true, className = 
 export function AdSenseBanner() {
   return (
     <div className="my-8 flex justify-center">
-      <AdSense 
-        slot="1234567890" 
-        format="auto" 
+      <AdSense
+        slot="1234567890"
+        format="auto"
         responsive={true}
         className="w-full max-w-728"
       />
@@ -50,9 +50,9 @@ export function AdSenseBanner() {
 export function AdSenseSidebar() {
   return (
     <div className="my-4">
-      <AdSense 
-        slot="0987654321" 
-        format="rectangle" 
+      <AdSense
+        slot="0987654321"
+        format="rectangle"
         responsive={true}
         className="w-full"
       />
@@ -63,9 +63,9 @@ export function AdSenseSidebar() {
 export function AdSenseInContent() {
   return (
     <div className="my-6 flex justify-center">
-      <AdSense 
-        slot="1122334455" 
-        format="auto" 
+      <AdSense
+        slot="1122334455"
+        format="auto"
         responsive={true}
         className="w-full max-w-300"
       />
